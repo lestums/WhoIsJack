@@ -1,8 +1,0 @@
-#BlueJ class context
-comment0.params=unlockItem\ state\ direction
-comment0.target=TrapDoor(java.lang.String,\ boolean,\ pkg_game.pkg_room.Room)
-comment0.text=\r\n\ Constructeur\ d'une\ TrapDoor,\ h\u00E9ritant\ des\ caract\u00E9ristiques\ d'une\ porte\ et\ ajoutant\ le\ sens\r\n\ de\ parcours\r\n
-comment1.params=nextRoom
-comment1.target=DoorSig\ useDoor(pkg_game.pkg_room.Room)
-comment1.text=\r\n\ Red\u00E9finition\ de\ la\ fonction\ abstraite\ de\ la\ classe\ m\u00E8re\ pour\ utiliser\ la\ trapdoor\ selon\ ses\r\n\ sp\u00E9cificit\u00E9s\r\n\ @return\ Le\ signal\ renvoy\u00E9\ par\ la\ porte\r\n
-numComments=2
