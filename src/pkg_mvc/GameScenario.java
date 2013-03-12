@@ -51,11 +51,11 @@ public class GameScenario
     
     public void initGameScenario()
     {
-        NPCharacter jack = new NPCharacter("Enqueteur","enqueteur","Bonjour, d√©sol√© mais ce n'est pas un endroit pour vous... \n Nous sommes occup√©s...",Event.NO_EVENT);
-        NPCharacter prostituee = new NPCharacter("Prostitu√©e","prostituee","Coucou mon mignon, si tu veux quelque chose il faudra y mettre le prix...",Event.NO_EVENT);
+        NPCharacter jack = new NPCharacter("Enqueteur","enqueteur","Bonjour, dÈsolÈ mais ce n'est pas un endroit pour vous... \n Nous sommes occupÈs...",Event.NO_EVENT);
+        NPCharacter prostituee = new NPCharacter("ProstituÈe","prostituee","Coucou mon mignon, si tu veux quelque chose il faudra y mettre le prix...",Event.NO_EVENT);
         NPCharacter chef_enquete = new NPCharacter("Chef d'Enquete","chefenquete","Qu'est ce que vous faites l√† ?!?! \nSortez de mon bureau !",Event.NO_EVENT);
         NPCharacter enfant = new NPCharacter("Petit Enfant","enfant","Bonjour monsieur... (baisse la tete)",Event.NO_EVENT);
-        NPCharacter jack_ginger = new NPCharacter("Enqueteur","enqueteur","Hahaha tu es tomb√© dans mon pi√®ge ! tu va mourir !",Event.GAME_OVER);
+        NPCharacter jack_ginger = new NPCharacter("Enqueteur","enqueteur","Hahaha tu es tombÈ dans mon pi√®ge ! tu va mourir !",Event.GAME_OVER);
         NPCharacter jack_home = new NPCharacter("Enqueteur","enqueteur","Faites comme chez vous ! \n\nReposez vous quelques minutes, nous discuterons apres.",Event.NO_EVENT);
         gameModel.getRoom("bureau").getCharRoom().addChar("enqueteur",jack);
         gameModel.getRoom("maisonClose").getCharRoom().addChar("prostituee",prostituee);
@@ -64,12 +64,12 @@ public class GameScenario
         gameModel.getRoom("maisonGinger").getCharRoom().addChar("enqueteur",jack_ginger);
         gameModel.getRoom("maisonJack").getCharRoom().addChar("enqueteur",jack_home);
         
-        journalintime = new Item(10,"Le journal intime de Polly, la prostitu√©e assassin√©e","diary",Event.NO_EVENT,Event.USE_DIARY,"Ramass√© : Journal Intime","Cher journal, je suis fatigu√©e de travailler la bas dans cette maison close... \nMais je n'ai pas le choix, il en faut pour rembourser ce collier que je n'aurais pas du acheter... \nMais il etait si beau....\n\n (le reste est tach√© de sang...)");
-        collier = new Item(10,"Un collier en or 18 carats","collier",Event.NO_EVENT,Event.HAVE_SEEN_NECK,"Ramass√© : Collier Or 18 Carats de Polly","Le Collier de polly, que fait il ici ?");
-        new Item(10,"Une empreinte relev√©e sur Ginger\n une autre prostitu√©e","emprunte",Event.NO_EVENT,Event.NO_EVENT,"Collect√© : Emprunte","Emprunte digitale du tueur pr√©sum√©");
-        chapeau = new Item(20,"Un chapeau melon gris o√π la lettre 'J' √©tait brod√©e","chapeau",Event.NO_EVENT,Event.HAVE_SEEN_HAT,"Ramass√© : Chapeau","Un chapeau etrange... Avec un 'J' brod√© dessus...");
-        cheveu1 = new Item(10,"Un cheveu trouv√© sur le corps de Ginger","cheveu1",Event.FOUND_HAIR,Event.NO_EVENT,"Collect√© : Cheveu","Un cheveu du tueur, ca sera utile pour plus tard...");
-        cheveu2 = new Item(10,"Un cheveu de l'enqu√™teur r√©colt√© \ndans sa salle de bain","cheveu2",Event.FOUND_HAIR,Event.NO_EVENT,"Collect√© : Autre Cheveu","Avec mon comparateur ADN, je peux voir si le cheveu trouv√© est le meme que celui que j'ai...");
+        journalintime = new Item(10,"Le journal intime de Polly, la prostituÈe assassinÈe","diary",Event.NO_EVENT,Event.USE_DIARY,"RamassÈ : Journal Intime","Cher journal, je suis fatiguÈe de travailler la bas dans cette maison close... \nMais je n'ai pas le choix, il en faut pour rembourser ce collier que je n'aurais pas du acheter... \nMais il etait si beau....\n\n (le reste est tachÈ de sang...)");
+        collier = new Item(10,"Un collier en or 18 carats","collier",Event.NO_EVENT,Event.HAVE_SEEN_NECK,"RamassÈ : Collier Or 18 Carats de Polly","Le Collier de polly, que fait il ici ?");
+        new Item(10,"Une empreinte relevÈe sur Ginger\n une autre prostituÈe","emprunte",Event.NO_EVENT,Event.NO_EVENT,"CollectÈ : Emprunte","Emprunte digitale du tueur prÈsumÈ");
+        chapeau = new Item(20,"Un chapeau melon gris o√π la lettre 'J' Ètait brodÈe","chapeau",Event.NO_EVENT,Event.HAVE_SEEN_HAT,"RamassÈ : Chapeau","Un chapeau etrange... Avec un 'J' brodÈ dessus...");
+        cheveu1 = new Item(10,"Un cheveu trouvÈ sur le corps de Ginger","cheveu1",Event.FOUND_HAIR,Event.NO_EVENT,"CollectÈ : Cheveu","Un cheveu du tueur, ca sera utile pour plus tard...");
+        cheveu2 = new Item(10,"Un cheveu de l'enqu√™teur rÈcoltÈ \ndans sa salle de bain","cheveu2",Event.FOUND_HAIR,Event.NO_EVENT,"CollectÈ : Autre Cheveu","Avec mon comparateur ADN, je peux voir si le cheveu trouvÈ est le meme que celui que j'ai...");
     }
     
     public void checkScenario()
@@ -95,7 +95,7 @@ public class GameScenario
         if(condition1 && !condition2 && !condition3 && !condition4 && !condition5 && !condition6 && !condition7 && !condition8){
              gameModel.getRoom("bureau").getCharRoom().getChar("enqueteur").setSpeech("Tiens bonjour ! Vous voulez nous aidez ? \nAlors allez voir le chef d'enquete il vous renseignera mieux que moi...");
              gameModel.getRoom("bureau").getCharRoom().getChar("chefenquete").setSpeech("Bonjour ! Nous n'avons que peu de temps et malheureusement \ntrop peu d'informations pour confondre ce Jack l'eventreur. \nVotre aide nous sera utile."+
-                                                                                        "\n\nLa premiere victime a √©t√© retrouv√©e morte dans un motel situ√© \ndans un quartier malfam√© de Londres. \nAller y jeter un coup d'oeil");
+                                                                                        "\n\nLa premiere victime a ÈtÈ retrouvÈe morte dans un motel situÈ \ndans un quartier malfamÈ de Londres. \nAller y jeter un coup d'oeil");
              gameModel.getRoom("bureau").getCharRoom().getChar("chefenquete").setSpeechEvent(Event.SPEECH_ENQUETE1); 
         }
         
@@ -112,7 +112,7 @@ public class GameScenario
         if(condition3 && !condition4 && !condition5 && !condition6 && !condition7 && !condition8){
             gameModel.getRoom("bureau").getCharRoom().getChar("enqueteur").setSpeech("Vous devriez suivre les indications de ce Journal...\n Meme si c'est un endroit peu recommandable, vous devriez y aller");
             gameModel.getRoom("bureau").getCharRoom().getChar("chefenquete").setSpeech("Interessant de me montrer ca mais je pensais que VOUS vous en chargiez ? \nAllez y bon sang ne trainez pas comme ca alors \nque vous avez les indices en main...");    
-            gameModel.getRoom("maisonClose").getCharRoom().getChar("prostituee").setSpeech("Elle a √©t√© tu√©e je sais... \nC'est un d√©traqu√© ce mec j'vous dit ! \nAllez voir Ginger je m'inquiete un peu, elle habite pres de l'hotel \nou habitait Polly... Sinon quelque chose vous tente ?");     
+            gameModel.getRoom("maisonClose").getCharRoom().getChar("prostituee").setSpeech("Elle a ÈtÈ tuÈe je sais... \nC'est un dÈtraquÈ ce mec j'vous dit ! \nAllez voir Ginger je m'inquiete un peu, elle habite pres de l'hotel \nou habitait Polly... Sinon quelque chose vous tente ?");     
             gameModel.getRoom("maisonClose").getCharRoom().getChar("prostituee").setSpeechEvent(Event.SPEECH_PROSTITUTE); 
         }
         
@@ -127,7 +127,7 @@ public class GameScenario
             gameModel.getRoom("rueSombre").getDoorMap().put("Est",trapdoor_ginger);
             gameModel.getRoom("maisonGinger").getDoorMap().put("Ouest",trapdoor_ginger);
             
-            gameModel.getRoom("bureau").getCharRoom().getChar("enqueteur").setSpeech("Ce qu'a dit cette prostitu√©e est interessant, \nvous devriez suivre ces indications");
+            gameModel.getRoom("bureau").getCharRoom().getChar("enqueteur").setSpeech("Ce qu'a dit cette prostituÈe est interessant, \nvous devriez suivre ces indications");
             gameModel.getRoom("bureau").getCharRoom().getChar("chefenquete").setSpeech("Quoi encore ?! Mais vous avez ce qu'il vous faut allez y !");    
             gameModel.getRoom("maisonClose").getCharRoom().getChar("prostituee").setSpeech("Quelque chose vous tente ?");    
             gameModel.getRoom("impasse").getCharRoom().getChar("enfant").setSpeech("(tremble) j'ai peur... j'ai vu un monsieur tout en noir, grand... \nIl avais un chapeau melon noir... C'etait horrible...");
@@ -135,7 +135,7 @@ public class GameScenario
         }
         
         if(condition5 && !condition6 && !condition7 && !condition8){
-            gameModel.getRoom("bureau").getCharRoom().getChar("enqueteur").setSpeech("Quelle journ√©e de dingue, ce criminel est vraiment epatant dans un certain sens...");
+            gameModel.getRoom("bureau").getCharRoom().getChar("enqueteur").setSpeech("Quelle journÈe de dingue, ce criminel est vraiment epatant dans un certain sens...");
             gameModel.getRoom("bureau").getCharRoom().getChar("chefenquete").setSpeech("L'affaire progresse un peu grace a vous... \nAttendez, il y a un autre meurtre vous devriez vous y rendre de ce pas...");        
             gameModel.getRoom("bureau").getCharRoom().getChar("chefenquete").setSpeechEvent(Event.SPEECH_ENQUETE2);
         }
@@ -148,18 +148,18 @@ public class GameScenario
             gameModel.getRoom("maisonGinger").getDoorMap().put("Ouest",new CommonDoor("MASTERKEY",false));
             
             gameModel.getRoom("bureau").getCharRoom().getChar("enqueteur").setSpeech("On y va... Encore une mort...");
-            gameModel.getRoom("bureau").getCharRoom().getChar("chefenquete").setSpeech("Aller on y va, encore une pauvre femme tu√©e...");        
+            gameModel.getRoom("bureau").getCharRoom().getChar("chefenquete").setSpeech("Aller on y va, encore une pauvre femme tuÈe...");        
             Door trapdoor = new TrapDoor("MASTERKEY",false,gameModel.getRoom("rueGare"));
             gameModel.getRoom("bureau").getDoorMap().remove("Sud");
             gameModel.getRoom("rueGare").getDoorMap().remove("Nord");
             gameModel.getRoom("rueGare").getDoorMap().put("Nord",trapdoor);
             gameModel.getRoom("bureau").getDoorMap().put("Sud",trapdoor);
-            gameModel.getRoom("maisonGinger").getCharRoom().getChar("enqueteur").setSpeech("Encore une victime ! C'est incroyable... \nJe ne sais pas comment il fait, il parvient toujours a nous devancer. \n\nQu'en pensez vous ? \n\nJ'ai une id√©e, venez chez moi ! Nous discuterons mieux de tout ca...");
+            gameModel.getRoom("maisonGinger").getCharRoom().getChar("enqueteur").setSpeech("Encore une victime ! C'est incroyable... \nJe ne sais pas comment il fait, il parvient toujours a nous devancer. \n\nQu'en pensez vous ? \n\nJ'ai une idÈe, venez chez moi ! Nous discuterons mieux de tout ca...");
             gameModel.getRoom("maisonGinger").getCharRoom().getChar("enqueteur").setSpeechEvent(Event.SPEECH_JACK);
         }
         
         if(condition7 && !condition8){
-            if(gameModel.getPlayer().getObjectPlayer().getItem("cheveu1")==null && gameModel.getPlayer().getObjectPlayer().getItem("collier")==null &&
+            if(gameModel.getPlayer().getObjectPlayer().getItem("chapeau")==null && gameModel.getPlayer().getObjectPlayer().getItem("collier")==null &&
                gameModel.getPlayer().getObjectPlayer().getItem("cheveu2")==null){
                     gameModel.getRoom("maisonJack").getObjectRoom().addItem("chapeau",chapeau);
                     gameModel.getRoom("maisonJack").getObjectRoom().addItem("collier",collier);
@@ -173,7 +173,7 @@ public class GameScenario
             gameModel.getRoom("rueGare").getDoorMap().remove("Nord");
             gameModel.getRoom("rueGare").getDoorMap().put("Nord",new CommonDoor("MASTERKEY",false));
             gameModel.getRoom("bureau").getDoorMap().put("Sud",new CommonDoor("MASTERKEY",false));
-            gameModel.getRoom("bureau").getCharRoom().getChar("chefenquete").setSpeech("Incroyable....\n\n Alors c'√©tait lui... Merci de votre aide pr√©cieuse. \nJe n'en reviens pas qu'il ai √©t√© sous notre nez depuis tout ce temps.");        
+            gameModel.getRoom("bureau").getCharRoom().getChar("chefenquete").setSpeech("Incroyable....\n\n Alors c'Ètait lui... Merci de votre aide prÈcieuse. \nJe n'en reviens pas qu'il ai ÈtÈ sous notre nez depuis tout ce temps.");        
             gameModel.getRoom("bureau").getCharRoom().getChar("chefenquete").setSpeechEvent(Event.CONGRATULATION); 
         }
     }

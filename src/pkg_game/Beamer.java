@@ -16,7 +16,7 @@ public class Beamer extends Item
     
     public Beamer(final int pPoids,final String pDescription,final String pName)
     {
-       super(pPoids,pDescription,pName,Event.NO_EVENT,Event.NO_EVENT,"RamassÃ© : Beamer","Un objet Ã©trange");
+       super(pPoids,pDescription,pName,Event.NO_EVENT,Event.NO_EVENT,"Ramassé : Beamer","Un objet étrange");
        sauvRoom = null;
     }
     

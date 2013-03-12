@@ -50,12 +50,12 @@ public class GameModel extends Observable
     private void createItem()
     {
         //Cr√©e les diff√©rents objets non essentiels du jeu
-        journal = new Item(5,"Un journal : 'The London News'","journal",Event.HAVE_NEWSPAPER,Event.HAVE_NEWSPAPER,"Ramass√© : Journal","Ceci est un simple journal, on y vois une des victimes de Jack");
-        carte = new Item(10,"Une carte de Londres","carte",Event.NO_EVENT,Event.NO_EVENT,"Ramass√© : Carte de Londres","Une carte de Londres tr√®s detaill√©e");
-        magikcookie = new Item(0, "Un biscuit magique qui permet d'augmenter \n la taille de votre inventaire de 500","magikcookie",Event.NO_EVENT,Event.NO_EVENT,"Ramass√© : Cookie Magique","Un d√©licieux cookie aux pouvoirs mystiques...\n Utilisez la commande manger pour le faire");
-        dna_comparator = new Item(0, "Un comparateur ADN que vous avez ramenez avec vous.","adncomp",Event.NO_EVENT,Event.USED_DNA_COMPARATOR,"Ramass√© : Comparateur ADN","Un comparateur d'ADN du XXIeme si√®cle");
-        beamer = new Beamer(5,"Beamer qui permet, apr√®s avoir √©t√© charg√© \n de se t√©l√©porter dans la salle sauvegard√©","beamer");
-        cle_transport = new Item(0, "Une petite cl√© jolie avec ecrit dessus : \n\tCl√© de la salle de transport","cletransport",Event.NO_EVENT,Event.USED_DNA_COMPARATOR,"Ramass√© : Comparateur ADN","Une cl√© ne s'utilise pas comme ca...");
+        journal = new Item(5,"Un journal : 'The London News'","journal",Event.HAVE_NEWSPAPER,Event.HAVE_NEWSPAPER,"RamassÈ : Journal","Ceci est un simple journal, on y vois une des victimes de Jack");
+        carte = new Item(10,"Une carte de Londres","carte",Event.NO_EVENT,Event.NO_EVENT,"Ramass√© : Carte de Londres","Une carte de Londres trÈs detaillÈe");
+        magikcookie = new Item(0, "Un biscuit magique qui permet d'augmenter \n la taille de votre inventaire de 500","magikcookie",Event.NO_EVENT,Event.NO_EVENT,"RamassÈ : Cookie Magique","Un dÈlicieux cookie aux pouvoirs mystiques...\n Utilisez la commande manger pour le faire");
+        dna_comparator = new Item(0, "Un comparateur ADN que vous avez ramenez avec vous.","adncomp",Event.NO_EVENT,Event.USED_DNA_COMPARATOR,"RamassÈ : Comparateur ADN","Un comparateur d'ADN du XXIeme siËcle");
+        beamer = new Beamer(5,"Beamer qui permet, aprËs avoir ÈtÈ chargÈ \n de se tÈlÈporter dans la salle sauvegardÈe","beamer");
+        cle_transport = new Item(0, "Une petite clÈ jolie avec ecrit dessus : \n\tClÈ de la salle de transport","cletransport",Event.NO_EVENT,Event.NO_EVENT,"RamassÈ : La clÈ de la salle de transport","Une clÈ ne s'utilise pas comme ca...");
         //Place les diff√©rents objets dans les diff√©rentes pi√®ces (initialisation)
         gare.getObjectRoom().addItem("magikcookie",magikcookie);
         librairie.getObjectRoom().addItem("carte",carte);
@@ -75,14 +75,14 @@ public class GameModel extends Observable
         rueSombre = new Room("Rue Sombre","dans la rue Sombre","ruesombre",4,false);
         maisonClose= new Room("Maison Close","dans la maison Close","maisonclose",4,false);
         impasse= new Room("Impasse","dans l'Impasse","impasse",4,false);
-        truands= new Room("Un endroit recul√©","chez les truands","truand",4,false);
-        hotel= new Room("Hotel miteux","dans la chambre d'h√¥tel","hotel",4,false);
+        truands= new Room("Un endroit reculÈ","chez les truands","truand",4,false);
+        hotel= new Room("Hotel miteux","dans la chambre d'hÙtel","hotel",4,false);
         maisonGinger= new Room("Maison de Ginger","chez Ginger","ginger",1,false);
         sallebain= new Room("Salle de bain","dans la salle de bain","SDB",4,false);
-        egout_truand = new Room("Egouts de Londres","dans les √©gouts en dessous de chez les truands","egout2",1,false);
-        egout_gare = new Room("Egouts de Londres","dans les √©gouts en dessous de la gare","egout3",1,false);
-        egout_impasse = new Room("Egouts de Londres","dans les √©gouts en dessous de l'Impasse","egout1",1,false);
-        transportRoom = new TransporterRoom("dans la piece de t√©l√©transport","transporterroom",1,true);
+        egout_truand = new Room("Egouts de Londres","dans les Ègouts en dessous de chez les truands","egout2",1,false);
+        egout_gare = new Room("Egouts de Londres","dans les Ègouts en dessous de la gare","egout3",1,false);
+        egout_impasse = new Room("Egouts de Londres","dans les Ègouts en dessous de l'Impasse","egout1",1,false);
+        transportRoom = new TransporterRoom("dans la piece de tÈlÈtransport","transporterroom",1,true);
         
         // Cr√©e les differentes portes
         trapdoor = new TrapDoor("MASTERKEY",false,truands);
@@ -216,14 +216,14 @@ public class GameModel extends Observable
    
     public String getWelcomeString()
     {
-        return "Bienvenue dans Who is Jack !\n\nVous vous retrouvez projet√© dans le XIX√®me si√®cle, dans la peau d'un enqueteur renomm√©\n" +
-               "\nApr√®s un long voyage en train, vous arrivez √† Londres, l√† ou s√©vit " +
-               "\nle l√©gendaire Jack l'√©ventreur ! \n(Tapez 'aide' pour avoir la liste des commandes)";
+        return "Bienvenue dans Who is Jack !\n\nVous vous retrouvez projetÈ dans le XIXËme siËcle, dans la peau d'un enqueteur de renom\n" +
+               "\nAprËs un long voyage en train, vous arrivez ‡ Londres, l‡ ou sÈvit " +
+               "\nle lÈgendaire Jack l'Èventreur ! \n(Tapez 'aide' pour avoir la liste des commandes)";
     }//getWelcomeString()
     
     public String getGoodByeString()
     {
-        return "Merci d'avoir jou√© ! A bientot ! =)";
+        return "Merci d'avoir jouÈ ! A bientot ! =)";
     }//getGoodByeString()
     
     public String getNameOfGame()
@@ -232,7 +232,7 @@ public class GameModel extends Observable
     }//getGoodByeString()
     
     public String getLongDescription() {
-        return "\nVous √™tes " + currentRoom.getShortDescription() + "\n" + "Il vous reste plus que "+nbDeplacementRestant + " d√©placements\n"+
+        return "\nVous Ítes " + currentRoom.getShortDescription() + "\n" + "Il vous reste plus que "+nbDeplacementRestant + " dÈplacements\n"+
                 currentRoom.getExitString() + "\n" + currentRoom.getCharRoom().getCharsString();
     }//getLongDescription()
     
