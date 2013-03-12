@@ -129,7 +129,6 @@ public class GameView implements ActionListener, Observer, ListSelectionListener
             icon = new ImageIcon(imageURL);
         }//else
         image.setIcon(icon);
-       // myFrame.pack();
     }//showImage()
     
     /**
