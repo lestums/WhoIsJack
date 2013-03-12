@@ -1,30 +1,20 @@
 package pkg_game.pkg_door;
 import pkg_game.pkg_room.*;
 /**
- * Programme <b>Who is Jack ?</b><br>
- * Class CommonDoor - Une porte classique<br><br>
+ * Who is Jack
  * 
- * Cette classe fait parti du jeu "Who is Jack ?"<br>
+ * CommonDoor class
  * 
- * Héritant de la classe Door, elle modélise une porte classique, utilisable dans
- * les deux sens.<br>
- * 
- * @author TRAN Anthony - RAVELONANOSY Lova - LE STUM Sébastien - PEYTOUREAU Julie
- * @version 2010.10.30 Version 7.45.1
+ * @author LE STUM S�bastien
+ * @version 2013.03.11 V1.0
  */
 public class CommonDoor extends Door
 {
-    /**
-     * Constructeur de la classe CommonDoor
-     */
     public CommonDoor(String unlockItem, boolean state)
     {
         super(state,unlockItem);
     }
     
-    /**
-     * Redéfinition de la fonction abstraite définissant le comportement de la porte
-     */
     @Override
     public DoorSig useDoor(Room nextRoom)
     {

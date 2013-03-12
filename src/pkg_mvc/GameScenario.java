@@ -7,16 +7,12 @@ import pkg_game.pkg_door.*;
 import java.util.HashMap;
 
 /**
- * Programme <b>Who is Jack ?</b><br>
- * Class GameScenario - Le Scénario du jeu "Who is jack ?"<br><br>
+ * Who is Jack
  * 
- * Cette classe fait parti du jeu "Who is Jack ?"<br>
+ * GameScenario class
  * 
- * Elle appartient a la partie "Modèle" du pattern MVC. Elle contient le scénario du jeu<br>
- * qui teste l'ensemble des objectifs du jeu, voyant s'ils sont réalisés ou non<br>
- * 
- * @author TRAN Anthony - RAVELONANOSY Lova - LE STUM Sébastien - PEYTOUREAU Julie
- * @version 2011.11.28 Version finale
+ * @author LE STUM S�bastien
+ * @version 2013.03.11 V1.0
  */
 public class GameScenario
 {
@@ -39,10 +35,6 @@ public class GameScenario
     private boolean condition7;
     private boolean condition8;
     
-    /**
-     * Constructeur de GameScenario : Initilise la HashMap des evenements scénarisé
-     * => Utilisation d'un enum pour l'ensemble des evenements possibles
-     */
     public GameScenario()
     {
         objectives = new HashMap<Event, Boolean>();
@@ -56,9 +48,7 @@ public class GameScenario
         gameModel = GameControl.getGameModel();
         initGameScenario();
     }
-    /**
-     * Initialise le scénario : Crée les personnages du scénario et les objets indispensables pour finir le jeu
-     */
+    
     public void initGameScenario()
     {
         NPCharacter jack = new NPCharacter("Enqueteur","enqueteur","Bonjour, désolé mais ce n'est pas un endroit pour vous... \n Nous sommes occupés...",Event.NO_EVENT);
@@ -82,9 +72,6 @@ public class GameScenario
         cheveu2 = new Item(10,"Un cheveu de l'enquêteur récolté \ndans sa salle de bain","cheveu2",Event.FOUND_HAIR,Event.NO_EVENT,"Collecté : Autre Cheveu","Avec mon comparateur ADN, je peux voir si le cheveu trouvé est le meme que celui que j'ai...");
     }
     
-    /**
-     * Procédure qui vérifie si chaque objectif est rempli
-     */
     public void checkScenario()
     {   
         new CommonDoor("MASTERKEY",true);
@@ -191,16 +178,10 @@ public class GameScenario
         }
     }
     
-    /**
-     * Fonction qui controle si le statut du jeu est PERDU ou GAGNE
-     */
     public int endOfGame(){
         return ((gameModel.getStatut() == Event.CONGRATULATION) ? 1 : ((gameModel.getStatut() == Event.GAME_OVER) ? -1 : 0));
     }            
     
-    /**
-     * Fonction qui valide un objectif lorsqu'un evenement intervient : Ramassage, depot, utilisation, dialogue
-     */
     public int validGoal(Event evenement)
     {
         if(evenement == Event.GAME_OVER){

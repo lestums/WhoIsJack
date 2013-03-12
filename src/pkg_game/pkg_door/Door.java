@@ -2,15 +2,12 @@ package pkg_game.pkg_door;
 import pkg_game.pkg_room.*;
 
 /**
- * Programme <b>Who is Jack ?</b><br>
- * Class Door<br><br>
+ * Who is Jack
  * 
- * Cette classe fait parti du jeu "Who is Jack ?"<br>
+ * Door class
  * 
- * Elle permet de gérer le franchissment des salles.<br>
- * 
- * @author TRAN Anthony - RAVELONANOSY Lova - LE STUM Sébastien - PEYTOUREAU Julie
- * @version 2010.10.30 Version 7.45.1
+ * @author LE STUM S�bastien
+ * @version 2013.03.11 V1.0
  */
 public abstract class Door
 {

@@ -2,37 +2,25 @@ package pkg_game.pkg_room;
 import pkg_mvc.*;
 
 /**
- * Programme <b>Who is Jack ?</b><br>
- * Class TransporterRoom - Une salle du jeu "Who is jack ?"<br><br>
+ * Who is Jack
  * 
- * Cette classe fait parti du jeu "Who is Jack ?"<br>
+ * TransporterRoom class
  * 
- * Elle permet de créer une salle de transport dans le jeu, qui nous téléportera aléatoirement<br>
- * selon la commande alea et le RoomRandomizer
- * 
- * @author TRAN Anthony - RAVELONANOSY Lova - LE STUM Sébastien - PEYTOUREAU Julie
- * @version 2011.11.28 Version finale
+ * @author LE STUM S�bastien
+ * @version 2013.03.11 V1.0
  */
 public class TransporterRoom extends Room{
 
     private boolean aAlea;
     private String aRoom;
     
-    /**
-     * Constructeur de la salle Transporteur room
-     */
     public TransporterRoom(String description, String image, int pNbImage, boolean pTransport)
     {
-        super("Salle de télétransport",description, image, pNbImage, pTransport);  
+        super("Salle de t�l�transport",description, image, pNbImage, pTransport);  
         aAlea = false;
         aRoom = null;
     }
     
-    /**
-     * Retourne une pièce aléatoire, indépendante du paramètre de direction.
-     * @param direction Ignoré
-     * @return Une pièce aléatoire.
-     */
     public Room getExit(String direction)
     {
         Room exit = super.getExit(direction);
@@ -48,9 +36,6 @@ public class TransporterRoom extends Room{
         }
     }//getExit()   
     
-    /**
-     * Modificateur des attributs alea et aRoom
-     */
     public void setAttribut(final boolean pAlea, final String pRoom)
     {
         aAlea = pAlea;

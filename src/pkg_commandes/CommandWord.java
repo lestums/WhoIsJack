@@ -1,16 +1,12 @@
 package  pkg_commandes;
 
 /**
- * Programme <b>Who is Jack ?</b><br>
- * Enum CommandWord - Rassemble les commandes utiles dans le jeu<br><br>
+ * Who is Jack
  * 
- * Cette classe fait parti du jeu "Who is Jack ?"<br>
+ * CommandWord enum
  * 
- * Enumération des commandes utilisables et liaison de chaque valeur a une String correspondant a<br>
- * l'entrée utilisateur<br>
- * 
- * @author TRAN Anthony - RAVELONANOSY Lova - LE STUM Sébastien - PEYTOUREAU Julie
- * @version 2010.11.28 Version finale
+ * @author LE STUM S�bastien
+ * @version 2013.03.11 V1.0
  */
 public enum CommandWord
 {
@@ -20,18 +16,11 @@ public enum CommandWord
 
     private String commandString;
      
-    /**
-     * Initialise avec le mot de commande associé
-     * @param commandString la ligne de commande
-     */
     CommandWord(String commandString)
     {
         this.commandString = commandString;
     }//CommandWord()
     
-    /**
-     * @return commandString ,le mot de commande associé au type énuméré
-     */
     public String toString()
     {
         return commandString;

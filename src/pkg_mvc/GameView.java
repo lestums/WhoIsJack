@@ -31,16 +31,12 @@ import javax.swing.DefaultListModel;
 
 
 /**
- * Programme <b>Who is Jack ?</b><br>
- * Class GameView - Une inteface graphique pour le jeu "Who is jack ?"<br><br>
+ * Who is Jack
  * 
- * Cette classe fait parti du jeu "Who is Jack ?"<br>
+ * GameView class
  * 
- * Elle correspond a la partie "Vue" du pattern MVC<br>
- * Elle génère une interface graphique utilisable pour le jeu "Who is Jack ?"<br>
- *  
- * @author TRAN Anthony - RAVELONANOSY Lova - LE STUM Sébastien - PEYTOUREAU Julie
- * @version 2011.11.28 Version finale
+ * @author LE STUM S�bastien
+ * @version 2013.03.11 V1.0
  */
 
 public class GameView implements ActionListener, Observer, ListSelectionListener
@@ -85,11 +81,6 @@ public class GameView implements ActionListener, Observer, ListSelectionListener
     private String selectL1;
     private String selectL2;
     
-     /**
-     * Construit une interface graphique en lien avec le gameModel du jeu
-     * 
-     * @param gameModel Le gameModel implémentant la logique du jeu
-     */
     public GameView(GameModel gameModel,Container Cont)
     {
         this.gameModel = gameModel;
@@ -97,27 +88,18 @@ public class GameView implements ActionListener, Observer, ListSelectionListener
         createGUI();
     }//GameView()
     
-    /**
-     * Affiche des informations dans la zone de texte
-     */
     public void print(String text)
     {
         log.append(text);
         log.setCaretPosition(log.getDocument().getLength());
     }//print()
     
-    /**
-     * Affiche des informations dans la zone de texte, suivi d'un saut de ligne.
-     */
     public void println(String text)
     {
         log.append(text + "\n");
         log.setCaretPosition(log.getDocument().getLength());
     }//println()
     
-    /**
-     * Affiche une image dans l'interface graphique
-     */
     public void showImage(String imageName)
     {
         ImageIcon icon;
@@ -131,9 +113,6 @@ public class GameView implements ActionListener, Observer, ListSelectionListener
         image.setIcon(icon);
     }//showImage()
     
-    /**
-     * Active ou désactive la possibilité de saisir
-     */
     public void enable(boolean on)
     {
         entryField.setEditable(on);
@@ -141,9 +120,6 @@ public class GameView implements ActionListener, Observer, ListSelectionListener
             entryField.getCaret().setBlinkRate(0);
     }//enable()
     
-    /**
-     * Procédure qui initialise les deux listes utilisées pour gérer les objets
-     */
     private void initLists(){
         listObjectRoom = new DefaultListModel();
         listPlayer = new DefaultListModel();
@@ -163,9 +139,6 @@ public class GameView implements ActionListener, Observer, ListSelectionListener
         liste2Scroll.setPreferredSize(new Dimension(80, 70));
     }
     
-    /**
-     * Procédure qui met a jour les deux listes en fonction des actions (Ramassage/dépot)
-     */
     public void update_lists_labels(){
         listObjectRoom.removeAllElements();
         listPlayer.removeAllElements();
@@ -181,10 +154,6 @@ public class GameView implements ActionListener, Observer, ListSelectionListener
                                              "/"+GameControl.getGameModel().getPlayer().getObjectPlayer().getPoidsMax());
     }
     
-    /**
-     * Ajoute les différents composants a la fenetre dont le container est pane
-     * @param pane Le container de la fenetre a charger
-     */
     public void addComponentsToPane(Container pane) {  
         
         pane.setLayout(null);          
@@ -270,9 +239,6 @@ public class GameView implements ActionListener, Observer, ListSelectionListener
         quit.setBounds(10 + insets.left,420,105,20);
     }   
     
-    /**
-     * Etablit l'interface utilisateur
-     */
     private void createGUI()
     {
         initLists();
@@ -415,9 +381,6 @@ public class GameView implements ActionListener, Observer, ListSelectionListener
         liste2.addListSelectionListener(this);
     }//createGUI()
 
-    /**
-     * ActionListener pour une action effectué sur un objet de l'interface
-     */
     public void actionPerformed(ActionEvent e) 
     {
         processCommand();
@@ -425,13 +388,10 @@ public class GameView implements ActionListener, Observer, ListSelectionListener
         
     public void valueChanged(ListSelectionEvent evt)
     {
-       selectL1 = (String) liste1.getSelectedValue(); 
-       selectL2 = (String) liste2.getSelectedValue();
+      	selectL1 = (String) liste1.getSelectedValue(); 
+      	selectL2 = (String) liste2.getSelectedValue();
     }
     
-    /**
-     * Une commande a été saisie, récupere cette commande et la renvoie pour qu'elle soit interperer
-     */
     private void processCommand()
     {
         String input = entryField.getText();
@@ -439,34 +399,22 @@ public class GameView implements ActionListener, Observer, ListSelectionListener
         GameControl.play(input);
     }//processCommand()
     
-    /**
-     * Affiche le message de bienvenue
-     */
     public void printWelcome()
     {
         display_message("Bienvenue !","\n" + gameModel.getWelcomeString() + "\n",JOptionPane.INFORMATION_MESSAGE);
         printLocationInfo();
     }//printWelcome()
-        
-    /**
-     * Affiche des informations sur la pièce courante
-     */
+    
     public void printLocationInfo()
     {
         println(gameModel.getLongDescription());
     }//printLocationInfo()
-        
-    /**
-     * Affiche un message de remerciement
-     */
+    
     public void printGoodBye() 
     {
         display_message("Au revoir !",gameModel.getGoodByeString(),JOptionPane.INFORMATION_MESSAGE);
     }//printGoodBye()
    
-    /**
-     * Fonction de mise a jour de l'observateur lorsque qu'un signal notifyObserver() est reconnu
-     */
     public void update(Observable o, Object arg)
     {
         printLocationInfo();
@@ -474,33 +422,24 @@ public class GameView implements ActionListener, Observer, ListSelectionListener
                showImage(gameModel.getCurrentRoom().getImageName());
         }
     }//update()
-    
-    /**
-     * Procédure qui ferme la fenetre en cours en gérant le cas Applet/Execution Classique
-     */
+   
     public void killFrame()
     {
-      printGoodBye();
-      if(aCont ==null){
-        myFrame.dispose();
-      }
-      else{
-        aCont.setVisible(false);  
-      }
+    	printGoodBye();
+    	if(aCont ==null){
+    		myFrame.dispose();
+    	}
+    	else{
+    		aCont.setVisible(false);  
+    	}
     }
-    
-    /**
-     * Affiche un message dans une boite de dialogue 
-     */
+   
     public void display_message(final String titre, final String message, final int optionType)
     {
         if(!(message.equals("vide") || message.equals("")))
         JOptionPane.showMessageDialog(null,message,titre,optionType);
     }
     
-    /**
-     * ???????????????????????,,
-     */
     class myFrameCloser extends WindowAdapter
     {
         @Override      

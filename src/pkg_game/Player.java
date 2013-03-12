@@ -3,15 +3,12 @@ package pkg_game;
 import pkg_game.pkg_room.*;
 
 /**
- * Programme <b>Who is Jack ?</b><br>
- * Class Player - Un joueur<br><br>
+ * Who is Jack
  * 
- * Cette classe fait parti du jeu "Who is Jack ?"<br>
+ * Player class
  * 
- * Elle gère la création et le statut d'un joueur du jeu<br>
- * 
- * @author TRAN Anthony - RAVELONANOSY Lova - LE STUM Sébastien - PEYTOUREAU Julie
- * @version 2011.11.28 Version finale
+ * @author LE STUM S�bastien
+ * @version 2013.03.11 V1.0
  */
 public class Player
 {
@@ -20,9 +17,6 @@ public class Player
     private Room currentPlayerRoom;
     private String nom_joueur;
     
-    /**
-     *  Constructeur : Initialise le joueur avec son nom et la salle courante
-     */
     public Player(final Room currentRoom, String nom)
     {
         this.inventaire = new ItemList(TAILLE_INVENTAIRE);
@@ -30,9 +24,6 @@ public class Player
         this.setNomJoueur(nom);
     }//Player() 
     
-    /**
-     * Modificateur affectant la salle courante a la salle courante du joueur
-     */
     public void setCurrentPlayerRoom(Room currentRoom)
     {
         this.currentPlayerRoom = currentRoom;
@@ -43,9 +34,6 @@ public class Player
         return this.currentPlayerRoom;
     }
     
-    /**
-     * Retourne l'objet représentant l'inventaire du joueur
-     */
     public ItemList getObjectPlayer(){
         return this.inventaire;
     }

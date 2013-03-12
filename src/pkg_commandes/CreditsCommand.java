@@ -1,30 +1,21 @@
 package  pkg_commandes;
-//Import des classes
+
 import pkg_game.*;
 import pkg_mvc.*;
 
 /**
- * Programme <b>Who is Jack ?</b><br>
- * Class CreditsCommand - Une commande du jeu<br><br>
+ * Who is Jack
  * 
- * Cette classe fait parti du jeu "Who is Jack ?"<br>
+ * Credits command class
  * 
- * Elle h√©rite de la classe abstraite Command. Elle permet d'afficher le cr√©dits du jeu<br>
- * 
- * @author TRAN Anthony - RAVELONANOSY Lova - LE STUM S√©bastien - PEYTOUREAU Julie
- * @version 2011.11.28 Version finale
+ * @author LE STUM SÈbastien
+ * @version 2013.03.11 V1.0
  */
 public class CreditsCommand extends Command
 {
-    /**
-     *  Cette m√©thode affiche le cr√©dit du jeu.
-     *  @param player le joueur
-     *  @param gui l'interface graphique
-     *  @return un message
-     */
     public String execute(Player player,GameView gui){
-        return "\n> Who's Jack ? < \n" + "Jeu concu pour le Projet JAVA de l'unit√© PR3S02\n" + "ESIEE Engineering - I3S / Ann√©e 2011-2012\n" + "\nEquipe 6s?\n"
-               + "\n" + "D√©veloppeurs :\n" + "     > TRAN Anthony\n" + "     > RAVELONANOSY Lova\n" + "     > LE STUM S√©bastien\n" + "     > PEYTOUREAU Julie\n" + "\n"
-               + "D√©ssinateur des illustrations :\n" + "     > TRAN Anthony\n";
+        return "\n> Who's Jack ? < \n" + "Jeu concu pour le Projet JAVA de l'unitÈ PR3S02\n" + "ESIEE Engineering - I3S / AnnÈe 2011-2012\n" + "\nEquipe 6s?\n"
+               + "\n" + "DÈveloppeurs :\n" + "     > TRAN Anthony\n" + "     > RAVELONANOSY Lova\n" + "     > LE STUM SÈbastien\n" + "     > PEYTOUREAU Julie\n" + "\n"
+               + "DÈssinateur des illustrations :\n" + "     > TRAN Anthony\n";
     }//execute()
 }//CreditsCommands

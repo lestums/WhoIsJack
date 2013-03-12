@@ -7,16 +7,12 @@ import pkg_game.*;
 import pkg_mvc.*;
 
 /**
- * Programme <b>Who is Jack ?</b><br>
- * Class Room - Une salle du jeu "Who is jack ?"<br><br>
+ * Who is Jack
  * 
- * Cette classe fait parti du jeu "Who is Jack ?"<br>
+ * Room class
  * 
- * Elle permet de créer une salle avec ses differentes sorties et une longue description ainsi que
- * les objets associés.<br>
- * 
- * @author TRAN Anthony - RAVELONANOSY Lova - LE STUM Sébastien - PEYTOUREAU Julie
- * @version 2011.11.28 Version finale
+ * @author LE STUM S�bastien
+ * @version 2013.03.11 V1.0
  */
 
 public class Room 
@@ -31,13 +27,6 @@ public class Room
     private CharList charRoom;
     private boolean aTransport;
     
-    /**
-     * Construteur Room : Crée une Room ayant "description" comme description. Par défaut une Room n'a pas de sortie.
-     * Une image est egalement associé a cette salle
-     * 
-     * @param description Description de la salle
-     * @param image Chemin d'acces a l'image liée a la salle
-     */
     public Room(String pNomSalle,String description, String image,int pNbImage, boolean pTransport) 
     {
         this.nomSalle = pNomSalle;
@@ -51,71 +40,42 @@ public class Room
         this.setTransport(pTransport);
     }//Room()
 
-    /**
-     * Défini les sorties disponibles pour une salle
-     * @param direction Direction de la salle voisine
-     * @param neighbor Référence de la salle voisine
-     */
     public void setExits(String direction, Room neighbor, Door door) 
     {
         exits.put(direction, neighbor);
         doors.put(direction, door);
     }//setExit()
-        
-    /**
-     * @return La sortie de la salle courante dans la direction précisée
-     * @param direction Direction entrée par le joueur
-     */
+    
     public Room getExit(String direction)
     {
         return exits.get(direction);
     }// getExit()
     
-    /**
-     * Accesseur qui retourne la liste des objets contenus dans la salle
-     */
     public ItemList getObjectRoom()
     {
         return this.objectRoom;
     }
     
-    /**
-     * Accesseur qui retourne le nom de la salle
-     */
     public String getName()
     {
         return this.nomSalle;
     }
-    
-    /**
-     * Accesseur qui retourne la liste des personnages présents dans la salle
-     */
+   
     public CharList getCharRoom()
     {
         return this.charRoom;
     }
     
-    /**
-     * Accesseur qui retourne la Map des portes contenues dans la salle
-     */
     public HashMap<String,Door> getDoorMap()
     {
         return doors;    
     }
     
-    /**
-     * Accesseur qui retourne la porte dans la direction demandée
-     * @param doorname Nom de la direction présentant une door
-     */
     public Door getDoor(String doorname)
     {
         return doors.get(doorname);
     }
     
-    /**
-     * Récupère toutes les sorties de la pièce courante
-     * @return Sorties disponibles pour la salle courante
-     */
     public String getExitString()
     {
         StringBuilder vString = new StringBuilder(128);
@@ -126,20 +86,12 @@ public class Room
         }//for()    
         return vString.toString();
     }//getExitString()
-       
-    /**
-     * Accesseur - attribut description
-     * @return Description de la salle courante
-     */
+    
     public String getShortDescription()
     {
         return description;
     }//getShortDescription()
     
-    /**
-     * Accesseur - attribut imageName
-     * @return Nom de l'image
-     */
     public String getImageName()
     {
         String imageM = "img/"+imageName;

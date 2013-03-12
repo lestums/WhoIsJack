@@ -1,5 +1,5 @@
 package pkg_mvc;
-//Import de classes
+
 import java.util.Observable;
 import java.util.Stack;
 import java.util.Set;
@@ -9,16 +9,12 @@ import pkg_game.*;
 import pkg_game.pkg_door.*;
 
 /**
- * Programme <b>Who is Jack ?</b><br>
- * Class GameModel - Un modèle du jeu "Who is jack ?"<br><br>
+ * Who is Jack
  * 
- * Cette classe fait parti du jeu "Who is Jack ?"<br>
+ * GameModel class
  * 
- * Elle correspond a la partie "Modèle" du pattern MVC. Elle contient le squelette du<br>
- * jeu et defini l'ensemble des objets construisant le jeu<br>
- * 
- * @author TRAN Anthony - RAVELONANOSY Lova - LE STUM Sébastien - PEYTOUREAU Julie
- * @version 2010.11.28 Version finale
+ * @author LE STUM S�bastien
+ * @version 2013.03.11 V1.0
  */
 public class GameModel extends Observable
 {
@@ -35,9 +31,6 @@ public class GameModel extends Observable
     private Door trapdoor;
     private Event statut;
     
-    /**
-     * Constructeur de la classe GameModel
-     */
     public GameModel()
     {
        aPlayer = new Player(currentRoom, "Anti-Jack");
@@ -48,18 +41,12 @@ public class GameModel extends Observable
        createChar();
     }//GameModel()
     
-    /**
-     * Procédure créeant les personnages non essentiels du jeu
-     */
     private void createChar()
     {
         gare.getCharRoom().addChar("chefstat",new NPCharacter("Chef de Station","chefstat","Bonjour je suis le chef de station !",Event.NO_EVENT));
         truands.getCharRoom().addChar("truands",new NPCharacter("Truands","truands","Ahahahaahaha !!! Un bourge !!! Aller vide tes poches....",Event.GAME_OVER));
     }
     
-    /**
-     * Procédure créant les objets non essentiels du jeu
-     */
     private void createItem()
     {
         //Crée les différents objets non essentiels du jeu
@@ -78,12 +65,8 @@ public class GameModel extends Observable
         aPlayer.getObjectPlayer().addItem("cletransport",cle_transport);
     }
     
-    /**
-     * Initialise les différentes pièces du jeu : initialise les sorties et les objets dans chaque pièce
-     */
     private void createRooms()
     {
-        // crée les différentes piéces
         gare = new Room("Gare de Londres", "dans la gare","gare",4,false);
         librairie = new Room("Librairie de la Gare","dans la librairie","librairie",4,false);
         rueGare = new Room("Grande Rue","dans la rue de la Gare","ruegare",4,false);
@@ -183,69 +166,42 @@ public class GameModel extends Observable
         aChemin = new Stack<Room>();
     }//createRooms()
     
-    /**
-     * Accesseur : récupère la pièce courante du joueur (attribut currentRoom)
-     * @return la pièce courante
-     */
     public Room getCurrentRoom()
     {
         return currentRoom;
     }//getCurrentRoom()
    
-    /**
-     * Accesseur : récupère le chemin parcouru par le joueur
-     * @return le chemin parcouru par le joueur (pile)
-     */
     public Stack<Room> getChemin()
     {
         return aChemin;
     }//getChemin()
-    /**
-     * Accesseur : retourne le statut actuel du jeu
-     * @return Le statut du jeu sous forme d'Event
-     */
+   
     public Event getStatut()
     {
         return this.statut;
     }
     
-    /**
-     * Modificateur : Modifie le statut du jeu selon le deroulement du jeu (GAME_OVER ou CONGRATULATIONS)
-     */
     public void setStatut(Event evenement)
     {
         this.statut = evenement;
     }
     
-    /**
-     * Accesseur : Retourne la Room associée a la chaine de caractères en parametre
-     */
     public Room getRoom(String nomRoom)
     {
         return roomMap.get(nomRoom);
     }
     
-    /**
-     * Retourne l'ensemble des Room contenue dans la HashMap
-     */
     public Set<String> getSetRoom()
     {
         return roomMap.keySet();
     }
     
-    /**
-     * Accesseur : Retourne le nombre de déplacement restant au joueur
-     */
     public int getNbDeplacement(){
         return nbDeplacementRestant;
     }
     
-    /**
-     * Change la pièce courante avec une affichage de la description de la nouvelle pièce courante
-     */
     public void gotoRoom(Room nextRoom)
     {
-        //gotoRoomMovingChar();
         currentRoom = nextRoom;
         aPlayer.setCurrentPlayerRoom(nextRoom);
         nbDeplacementRestant -= 1;
@@ -253,55 +209,33 @@ public class GameModel extends Observable
         notifyObservers();
     }//gotoRoom()
     
-    /**
-     * Change la pièce courante pour un personnage mobile
-     */
     public void gotoRoomMovingChar(NPMovingChar movingChar)
     {
          movingChar.moveChar(currentRoom);
     }
-            
-    /**
-     * Message de bienvenue
-     * @return Le message de bienvenue
-     */
+   
     public String getWelcomeString()
     {
         return "Bienvenue dans Who is Jack !\n\nVous vous retrouvez projeté dans le XIXème siècle, dans la peau d'un enqueteur renommé\n" +
                "\nAprès un long voyage en train, vous arrivez à Londres, là ou sévit " +
                "\nle légendaire Jack l'éventreur ! \n(Tapez 'aide' pour avoir la liste des commandes)";
     }//getWelcomeString()
-        
-    /**
-     * Message de remerciement
-     * @return message de remerciement
-     */
+    
     public String getGoodByeString()
     {
         return "Merci d'avoir joué ! A bientot ! =)";
     }//getGoodByeString()
     
-    /**
-     * Message de remerciement
-     * @return message de remerciement
-     */
     public String getNameOfGame()
     {
         return nameOfGame;
     }//getGoodByeString()
     
-    /**
-     * Informations de la pièces courantes
-     * @return Les informations (pièces courantes, sorties, objets de la pièce et objets trasportés par le joueur) au joueur
-     */
     public String getLongDescription() {
         return "\nVous êtes " + currentRoom.getShortDescription() + "\n" + "Il vous reste plus que "+nbDeplacementRestant + " déplacements\n"+
                 currentRoom.getExitString() + "\n" + currentRoom.getCharRoom().getCharsString();
     }//getLongDescription()
     
-    /**
-     * @return Un objet de type Player
-     */ 
     public Player getPlayer(){
        return this.aPlayer;
     }// getPlayer()

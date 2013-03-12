@@ -1,33 +1,20 @@
 package  pkg_commandes;
-//Import de classes
+
 import pkg_game.*;
 import pkg_game.pkg_room.*;
 import pkg_mvc.*;
 import pkg_game.pkg_door.*;
 
 /**
- * Programme <b>Who is Jack ?</b><br>
- * Class AllerCommand - Une commande du jeu<br><br>
+ * Who is Jack
  * 
- * Cette classe fait parti du jeu "Who is Jack ?"<br>
+ * Go command
  * 
- * Elle hérite de la classe abstraite Command. Elle permet de se déplacer dans le jeu<br>
- * 
- * @author TRAN Anthony - RAVELONANOSY Lova - LE STUM Sébastien - PEYTOUREAU Julie
- * @version 2011.11.28 Version finale
+ * @author LE STUM S�bastien
+ * @version 2013.03.11 V1.0
  */
 public class AllerCommand extends Command
 {
-   /**
-     *  Cette méthode réalise des vérifications pour le déplacement : on vérifie que le joueur a bien tapé un deuxième mot qui doit correspondre
-     *  à une direction existante. On vérifie que dans la direction voulue, la porte n'est pas vérouiller ou que ce n'est pas 
-     *  une trapdoor. Enfin on stocke la pièce courante dans une pile (afin d'utiliser la commande retour) et on se déplace 
-     *  grâce à la méthode gotoRoom().
-     *  Sinon dans les autres cas, on retourne un message d'erreur.
-     *  @param player le joueur
-     *  @param gui l'interface graphique
-     *  @return un message
-     */
     public String execute(Player player,GameView gui)
     {
         if(!hasSecondWord()) {
@@ -46,7 +33,7 @@ public class AllerCommand extends Command
             switch(nextDoor.useDoor(nextRoom)){
 
                 case LOCKED :
-                    return "la porte est fermée !";
+                    return "la porte est ferm�e !";
                 case TRAPDOOR :
                     return "C'est une porte a sens unique ! Vous ne pouvez pas \n faire demi tour !";
                 case CANUSE :

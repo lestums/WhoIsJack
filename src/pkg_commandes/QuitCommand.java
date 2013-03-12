@@ -1,27 +1,18 @@
 package  pkg_commandes;
-//Import des classes
+
 import pkg_game.*;
 import pkg_mvc.*;
 
 /**
- * Programme <b>Who is Jack ?</b><br>
- * Class QuitCommand - Une commande du jeu<br><br>
+ * Who is Jack
  * 
- * Cette classe fait parti du jeu "Who is Jack ?"<br>
+ * Quit command class
  * 
- * Elle hérite de la classe abstraite Command. Elle permet de quitter le jeu<br>
- * 
- * @author TRAN Anthony - RAVELONANOSY Lova - LE STUM Sébastien - PEYTOUREAU Julie
- * @version 2011.11.28 Version finale
+ * @author LE STUM S�bastien
+ * @version 2013.03.11 V1.0
  */
 public class QuitCommand extends Command
 {
-    /**
-     *  Cette méthode permet de quitter le jeu en appellant la méthode killframe()
-     *  @param player le joueur
-     *  @param gui l'interface graphique
-     *  @return un message
-     */
     public String execute(Player player,GameView gui){
         gui.killFrame();
         return "";

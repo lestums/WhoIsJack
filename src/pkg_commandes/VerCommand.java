@@ -1,31 +1,18 @@
 package  pkg_commandes;
-//Import de classes
 import pkg_game.*;
 import pkg_mvc.*;
 import pkg_game.pkg_door.Door;
 
 /**
- * Programme <b>Who is Jack ?</b><br>
- * Class VerCommand - Une commande du jeu<br><br>
+ * Who is Jack
  * 
- * Cette classe fait parti du jeu "Who is Jack ?"<br>
+ * Ver command class
  * 
- * Elle hérite de la classe abstraite Command. Elle permet de verrouiller une porte<br>
- * 
- * @author TRAN Anthony - RAVELONANOSY Lova - LE STUM Sébastien - PEYTOUREAU Julie
- * @version 2011.11.28 Version finale
+ * @author LE STUM S�bastien
+ * @version 2013.03.11 V1.0
  */
 public class VerCommand extends Command
 {
-    /**
-     *  Cette méthode vérifie que le joueur a bien tapé 3 mots sur la ligne de commande. Si c'est bien le cas,
-     *  on vérifie que la porte existe bien grâce au troisième mot. Enfin nous vérifions l'état de la porte et 
-     *  nous retournons un message en fonction de son état.
-     *  Sinon on retourne un message d'erreur.
-     *  @param player le joueur
-     *  @param gui l'interface graphique
-     *  @return un message
-     */
     public String execute(Player player,GameView gui){
         String message = null;
         GameModel gameModel = GameControl.getGameModel();
@@ -37,13 +24,13 @@ public class VerCommand extends Command
             if(itemToLock != null || getSecondWord() == "MASTERKEY"){
                 switch(toClose.lockDoor(getSecondWord())){
                     case LOCKED :
-                        message = "La porte est verrouillée !";
+                        message = "La porte est verrouill�e !";
                         break;
                     case WRONG_ITEM :
-                        message = "C'est pas la bonne clé !";
+                        message = "C'est pas la bonne cl� !";
                         break;
                     case ALREADY_LOCKED :
-                        message = "La porte est dejà fermée !";
+                        message = "La porte est dej� ferm�e !";
                         break;
                     default :
                         message = "Cette porte n'existe pas !";
@@ -51,7 +38,7 @@ public class VerCommand extends Command
                 }//switch()
             } //if
             else 
-                return "Vous ne possédez pas la clé pour \n verrouiller cette porte !";
+                return "Vous ne poss�dez pas la cl� pour \n verrouiller cette porte !";
         }//else
         return message;   
     }//execute()

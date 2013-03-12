@@ -1,15 +1,12 @@
 package pkg_game;
 
 /**
- * Programme <b>Who is Jack ?</b><br>
- * Enum Event - Un evenement du jeu<br><br>
+ * Who is Jack
  * 
- * Cet enum fait partie du jeu "Who is jack ?"<br>
+ * Event class
  * 
- * Il permet de générer la liste des evenements possible intervenant dans le jeu
- * 
- * @author TRAN Anthony - RAVELONANOSY Lova - LE STUM Sébastien - PEYTOUREAU Julie
- * @version 2011.11.28 Version finale
+ * @author LE STUM S�bastien
+ * @version 2013.03.11 V1.0
  */
 public enum Event
 {

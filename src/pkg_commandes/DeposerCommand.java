@@ -1,18 +1,15 @@
 package  pkg_commandes;
-//Import de classes
+
 import pkg_game.*;
 import pkg_mvc.*;
 
 /**
- * Programme <b>Who is Jack ?</b><br>
- * Class DeposerCommand - Une commande du jeu "Who is jack ?"<br><br>
+ * Who is Jack
  * 
- * Cette classe fait parti du jeu "Who is Jack ?"<br>
+ * Deposer command class
  * 
- * Elle permet de déclencher le beamer, un objet pour se téléporter.<br>
- * 
- * @author TRAN Anthony - RAVELONANOSY Lova - LE STUM Sébastien - PEYTOUREAU Julie
- * @version 2010.11.28 Version finale
+ * @author LE STUM S�bastien
+ * @version 2013.03.11 V1.0
  */
 
 public class DeposerCommand extends Command{

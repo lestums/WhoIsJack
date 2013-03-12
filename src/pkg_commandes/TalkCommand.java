@@ -1,30 +1,18 @@
 package pkg_commandes;
-//Import de classes
+
 import pkg_game.*;
 import pkg_mvc.GameControl;
 import pkg_mvc.GameView;
-
 /**
- * Programme <b>Who is Jack ?</b><br>
- * Class TalkCommand - Une commande du jeu "Who is jack ?"<br><br>
+ * Who is Jack
  * 
- * Cette classe fait parti du jeu "Who is Jack ?"<br>
+ * Talk command class
  * 
- * Elle permet de faire parler un personnage.<br>
- * 
- * @author TRAN Anthony - RAVELONANOSY Lova - LE STUM Sébastien - PEYTOUREAU Julie
- * @version 2010.11.28 Version finale
+ * @author LE STUM S�bastien
+ * @version 2013.03.11 V1.0
  */
 public class TalkCommand extends Command
 {
-    /**
-     * Fonction qui permet d'exécuter la commande rentrée par le joueur:
-     * si il y a un second mot tapé, on identifie le personnage et déclenche l'affichage du script qui lui correspond. 
-     * sinon affichage de messages d'erreur.
-     * @param player le joueur
-     * @param gui l'interface graphique
-     * @return un message correspondant à la commande
-     */
     public String execute(Player player,GameView gui){
         if(hasSecondWord()){
             NPCharacter character = GameControl.getGameModel().getCurrentRoom().getCharRoom().getChar(getSecondWord());
@@ -32,7 +20,7 @@ public class TalkCommand extends Command
                 GameControl.getGameScenario().validGoal(character.getSpeechEvent());
                 return character.getSpeech();
             }//if 
-            else return "Il n'y a pas de personnage de ce nom dans cette pièce !";
+            else return "Il n'y a pas de personnage de ce nom dans cette pi�ce !";
         }//if 
         else return "Parler tout seul ?";
     }//execute()

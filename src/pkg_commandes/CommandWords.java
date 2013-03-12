@@ -4,27 +4,11 @@ import java.util.HashMap;
 import java.lang.StringBuilder;
 
 
-/**
- * Programme <b>Who is Jack ?</b><br>
- * Class CommandWords - Mots d'une ligne de commande<br><br>
- * 
- * Cette classe fait parti du jeu "Who is Jack ?"<br>
- * 
- * Elle permet de recuperer la ligne de commande entrée par l'utilisateur et
- * de tester si elle est valide<br>
- * 
- * @author TRAN Anthony - RAVELONANOSY Lova - LE STUM Sébastien - PEYTOUREAU Julie
- * @version 2010.11.28 Version finale
- */
-
 public class CommandWords
 {
     private HashMap<CommandWord, Command> validCommands;
     private HashMap<String, CommandWord> validCommandWords;
     
-    /**
-     * Constructeur : Etabli la HashMap des commandes valides a partir des types énumérés
-     */
     public CommandWords()
     {
         validCommands = new HashMap<CommandWord, Command>();

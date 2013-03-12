@@ -3,20 +3,15 @@ import java.util.Random;
 import pkg_mvc.*;
 
 /**
- * Programme <b>Who is Jack ?</b><br>
- * Class RoomRandomizer - Un RoomRandomizer du jeu "Who is jack ?"<br><br>
+ * Who is Jack
  * 
- * Cette classe fait parti du jeu "Who is Jack ?"<br>
+ * RoomRandomizer class
  * 
- * Elle permet de fournir aléatoirement une salle du jeu<br>
- * 
- * @author TRAN Anthony - RAVELONANOSY Lova - LE STUM Sébastien - PEYTOUREAU Julie
- * @@version 2011.11.28 Version finale
+ * @author LE STUM S�bastien
+ * @version 2013.03.11 V1.0
  */
 public class RoomRandomizer{
-    /**
-     * Fonction statique permettant de retourner aléatoirement une room
-     */
+    
     public static Room findRandomRoom(){
         Random vR = new Random();
         String[] roomNames = GameControl.getGameModel().getSetRoom().toArray(new String[0]);

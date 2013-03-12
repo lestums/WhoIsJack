@@ -4,16 +4,12 @@ import java.util.HashMap;
 import java.util.Set;
 
 /**
- * Programme <b>Who is Jack ?</b><br>
- * Class ItemList - Une liste d'objets Item<br><br>
+ * Who is Jack
  * 
- * Cette classe fait parti du jeu "Who is Jack ?"<br>
+ * ItemList class
  * 
- * Elle permet la gestion d'une liste d'items inclus dans le jeu avec le poids courant des objets contenu dans la liste<br>
- * et le poids total supporté par la liste<br>
- * 
- * @author TRAN Anthony - RAVELONANOSY Lova - LE STUM Sébastien - PEYTOUREAU Julie
- * @version 2011.11.28 Version finale
+ * @author LE STUM S�bastien
+ * @version 2013.03.11 V1.0
  */
 public class ItemList
 {
@@ -21,20 +17,12 @@ public class ItemList
     private int poidsCourant;
     private int poidsMax;
     
-    /**
-     * Construteur ItemList : Crée une liste d'item
-     */
     public ItemList(final int pPoidsMax){
        this.poidsMax = pPoidsMax;
        this.objectList = new HashMap<String, Item>();
        this.poidsCourant = 0;
     }
     
-    /**
-     * Ajoute un objet dans la salle
-     * @param pDescription Description de l'objet
-     * @param pObjet Référence de l'item
-     */
     public boolean addItem(String pDescription,Item pObjet) 
     {
         if((poidsMax-poidsCourant)<pObjet.getPoids()){
@@ -46,11 +34,6 @@ public class ItemList
         }
     }//addItem()
     
-    /**
-     * Supprime l'objet pris par le joueur dans la pièce courante
-     * @return l'objet Item pris par le joueur s'il se trouve dans la Hasmap objetsRoom sinon retourne null
-     * @param key(String) de l'objet à prendre
-     */
     public Item removeItem(String itemKey){
         if(objectList.containsKey(itemKey)){
            // Si itemKey se trouve bien dans objetRoom (Hashmap, map présentant les objets d'une pièce), on
@@ -63,47 +46,26 @@ public class ItemList
         return null;
     }// prendreItem()
    
-    /**
-     * Accesseur de la classe itemList qui retourne la liste des objec
-     */
     public HashMap<String,Item> getItemList(){
         return objectList;
     }
     
-    /**
-     * Accesseur qui retourne l'objet stocké dans la liste
-     * @param item Le nom de l'objet
-     * @return L'objet / null si inexistant
-     */
     public Item getItem(String item){
         return this.objectList.get(item);
     }
     
-    /**
-     * Accesseur qui retourne le poids courant de l'inventaire
-     */
     public int getPoidsCourant(){
         return this.poidsCourant;
     }
-    
-    /**
-     * Accesseur qui renvoie le poids maximum de l'inventaire
-     */
+   
     public int getPoidsMax(){
         return this.poidsMax;
     }
     
-    /**
-     * Modificateur de l'attribut poidsMax
-     */
     public void setPoidsMax(final int poids){
         this.poidsMax = poids;
     }
     
-    /**
-     * Récupère tout les objets se trouvant dans la pièce courante
-     * @return Objets présents dans la salle courante
-     */
     public String getObjectString(String Type)
     {
         String returnString = "Objets ";
@@ -111,22 +73,22 @@ public class ItemList
             Set<String> keys = objectList.keySet();
 
             if(Type.equals("Player")){
-                returnString += "transportés : \n";
+                returnString += "transport�s : \n";
                 
             } else {
-                returnString += "dans la pièce : \n";
+                returnString += "dans la pi�ce : \n";
             }
             
             for(String objet : keys){
-                returnString += " - "+objet+": "+objectList.get(objet).getDescription()+ " qui pèse "+objectList.get(objet).getPoids()+" kg \n";
+                returnString += " - "+objet+": "+objectList.get(objet).getDescription()+ " qui p�se "+objectList.get(objet).getPoids()+" kg \n";
                 
             }//for()
         } 
         else {
             if(Type.equals("Player")){
-                returnString += "transportés : vous ne possédez rien";
+                returnString += "transport�s : vous ne poss�dez rien";
             } else {
-                returnString += "dans la pièce : il n'y a aucun objet dans cette salle";
+                returnString += "dans la pi�ce : il n'y a aucun objet dans cette salle";
             }
         }   
         return returnString;
