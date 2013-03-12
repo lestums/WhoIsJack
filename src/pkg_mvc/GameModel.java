@@ -4,7 +4,6 @@ import java.util.Observable;
 import java.util.Stack;
 import java.util.Set;
 import java.util.HashMap;
-import java.util.Arrays;
 import pkg_game.pkg_room.*;
 import pkg_game.*;
 import pkg_game.pkg_door.*;
@@ -31,9 +30,9 @@ public class GameModel extends Observable
     private HashMap<String,Room> roomMap;
     private Room gare, librairie, rueGare, maisonJack, bureau, rueSombre, maisonClose, impasse, truands, hotel, maisonGinger, 
                  sallebain, egout_truand, egout_gare, egout_impasse, transportRoom;
-    private Item carte, journalintime, journal, chapeau, boucle1, boucle2, cheveu1, cheveu2, emprunte, magikcookie, dna_comparator, cle_transport;
+    private Item carte, journal, magikcookie, dna_comparator, cle_transport;
     private Beamer beamer;
-    private Door porte, trapdoor;
+    private Door trapdoor;
     private Event statut;
     
     /**

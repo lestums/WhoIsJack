@@ -1,7 +1,6 @@
 package pkg_commandes;
 //Import de classes
 import pkg_game.*;
-import pkg_game.pkg_door.*;
 import pkg_mvc.*;
 
 /**

@@ -24,7 +24,7 @@ public class NPCharacter
      */
     public NPCharacter(final String pDescription, final String pName, final String pSpeech, final Event pSpeechEvent)
     {
-        this.aDescription = pDescription;
+        this.setDescription(pDescription);
         this.aName = pName;
         this.aSpeech = pSpeech;
         this.aSpeechEvent = pSpeechEvent;
@@ -67,4 +67,12 @@ public class NPCharacter
     {   
         return this.aSpeechEvent;
     }//getSpeechEvent()
+
+	public String getDescription() {
+		return aDescription;
+	}
+
+	public void setDescription(String aDescription) {
+		this.aDescription = aDescription;
+	}
 }//NPCharacter

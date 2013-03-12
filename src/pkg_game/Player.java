@@ -1,8 +1,5 @@
 package pkg_game;
 
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Set;
 import pkg_game.pkg_room.*;
 
 /**
@@ -30,7 +27,7 @@ public class Player
     {
         this.inventaire = new ItemList(TAILLE_INVENTAIRE);
         this.currentPlayerRoom = currentRoom;
-        this.nom_joueur = nom;
+        this.setNomJoueur(nom);
     }//Player() 
     
     /**
@@ -41,10 +38,23 @@ public class Player
         this.currentPlayerRoom = currentRoom;
     }
     
+    public Room getCurrentPlayerRoom(Room currentRoom)
+    {
+        return this.currentPlayerRoom;
+    }
+    
     /**
      * Retourne l'objet représentant l'inventaire du joueur
      */
     public ItemList getObjectPlayer(){
         return this.inventaire;
     }
+
+	public String getNomJoueur() {
+		return nom_joueur;
+	}
+
+	public void setNomJoueur(String nom_joueur) {
+		this.nom_joueur = nom_joueur;
+	}
 }//Player

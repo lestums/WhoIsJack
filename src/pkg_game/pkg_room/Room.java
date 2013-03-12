@@ -1,7 +1,6 @@
 package pkg_game.pkg_room;
 
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Set;
 import pkg_game.pkg_door.*;
 import pkg_game.*;
@@ -49,7 +48,7 @@ public class Room
         this.objectRoom = new ItemList(9999);
         this.imageName = image;
         this.nbImage = pNbImage;
-        this.aTransport = pTransport;
+        this.setTransport(pTransport);
     }//Room()
 
     /**
@@ -157,5 +156,13 @@ public class Room
             return imageM;
         }
     } //getImageName() 
+
+	public boolean isTransport() {
+		return aTransport;
+	}
+
+	public void setTransport(boolean aTransport) {
+		this.aTransport = aTransport;
+	}
 
 }

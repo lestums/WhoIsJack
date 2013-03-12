@@ -22,16 +22,8 @@ public class GameScenario
 {
     private GameModel gameModel;
 
-    private NPCharacter jack; 
-    private NPCharacter prostituee; 
-    private NPCharacter chef_enquete;
-    private NPCharacter enfant;
-    private NPCharacter jack_ginger; 
-    private NPCharacter jack_home;
-
     private Item journalintime;
     private Item collier;
-    private Item emprunte;
     private Item chapeau;
     private Item cheveu1;
     private Item cheveu2;
@@ -84,7 +76,7 @@ public class GameScenario
         
         journalintime = new Item(10,"Le journal intime de Polly, la prostituée assassinée","diary",Event.NO_EVENT,Event.USE_DIARY,"Ramassé : Journal Intime","Cher journal, je suis fatiguée de travailler la bas dans cette maison close... \nMais je n'ai pas le choix, il en faut pour rembourser ce collier que je n'aurais pas du acheter... \nMais il etait si beau....\n\n (le reste est taché de sang...)");
         collier = new Item(10,"Un collier en or 18 carats","collier",Event.NO_EVENT,Event.HAVE_SEEN_NECK,"Ramassé : Collier Or 18 Carats de Polly","Le Collier de polly, que fait il ici ?");
-        emprunte = new Item(10,"Une empreinte relevée sur Ginger\n une autre prostituée","emprunte",Event.NO_EVENT,Event.NO_EVENT,"Collecté : Emprunte","Emprunte digitale du tueur présumé");
+        new Item(10,"Une empreinte relevée sur Ginger\n une autre prostituée","emprunte",Event.NO_EVENT,Event.NO_EVENT,"Collecté : Emprunte","Emprunte digitale du tueur présumé");
         chapeau = new Item(20,"Un chapeau melon gris où la lettre 'J' était brodée","chapeau",Event.NO_EVENT,Event.HAVE_SEEN_HAT,"Ramassé : Chapeau","Un chapeau etrange... Avec un 'J' brodé dessus...");
         cheveu1 = new Item(10,"Un cheveu trouvé sur le corps de Ginger","cheveu1",Event.FOUND_HAIR,Event.NO_EVENT,"Collecté : Cheveu","Un cheveu du tueur, ca sera utile pour plus tard...");
         cheveu2 = new Item(10,"Un cheveu de l'enquêteur récolté \ndans sa salle de bain","cheveu2",Event.FOUND_HAIR,Event.NO_EVENT,"Collecté : Autre Cheveu","Avec mon comparateur ADN, je peux voir si le cheveu trouvé est le meme que celui que j'ai...");
@@ -95,9 +87,8 @@ public class GameScenario
      */
     public void checkScenario()
     {   
-        DoorSig signal;
-        Door locked = new CommonDoor("MASTERKEY",true);
-        Door porte = new CommonDoor("rien",false);
+        new CommonDoor("MASTERKEY",true);
+        new CommonDoor("rien",false);
         
         condition1 = objectives.get(Event.HAVE_NEWSPAPER);
         condition2 = objectives.get(Event.SPEECH_ENQUETE1);
@@ -109,9 +100,9 @@ public class GameScenario
         condition8 = (objectives.get(Event.HAVE_SEEN_HAT) && objectives.get(Event.HAVE_SEEN_NECK) && objectives.get(Event.USED_DNA_COMPARATOR));
         
         if(!condition1 && !condition2 && !condition3 && !condition4 && !condition5 && !condition6 && !condition7 && !condition8){
-            signal = gameModel.getRoom("rueSombre").getDoor("Est").lockDoor("MASTERKEY");
-            signal = gameModel.getRoom("rueGare").getDoor("Sud").lockDoor("MASTERKEY");
-            signal = gameModel.getRoom("rueSombre").getDoor("Sud-Ouest").lockDoor("MASTERKEY");
+            gameModel.getRoom("rueSombre").getDoor("Est").lockDoor("MASTERKEY");
+            gameModel.getRoom("rueGare").getDoor("Sud").lockDoor("MASTERKEY");
+            gameModel.getRoom("rueSombre").getDoor("Sud-Ouest").lockDoor("MASTERKEY");
         }
         
         if(condition1 && !condition2 && !condition3 && !condition4 && !condition5 && !condition6 && !condition7 && !condition8){
@@ -125,7 +116,7 @@ public class GameScenario
             if(gameModel.getPlayer().getObjectPlayer().getItem("diary")==null){
                 gameModel.getRoom("hotel").getObjectRoom().addItem("diary",journalintime);
             }
-            signal = gameModel.getRoom("rueSombre").getDoor("Sud-Ouest").unlockDoor("MASTERKEY");
+            gameModel.getRoom("rueSombre").getDoor("Sud-Ouest").unlockDoor("MASTERKEY");
             gameModel.getRoom("bureau").getCharRoom().getChar("enqueteur").setSpeech("Vous avez eu le lieu du premier meutre ? \nQu'attendez vous pour y aller ?! \nNous n'avons que peu de temps...");
             gameModel.getRoom("bureau").getCharRoom().getChar("chefenquete").setSpeech("Toujours la ?!? \n\nAllez a cet hotel maintenant, on a pas de temps a perdre... \nVous devriez surement trouver quelque chose d'interessant"+
                                                                                         " a exploiter... \nOn ne sait jamais...");                                                                        
@@ -142,7 +133,7 @@ public class GameScenario
             if(gameModel.getPlayer().getObjectPlayer().getItem("cheveu1")==null){
                 gameModel.getRoom("impasse").getObjectRoom().addItem("cheveu1",cheveu1);
             }
-            signal = gameModel.getRoom("rueSombre").getDoor("Est").unlockDoor("MASTERKEY");
+            gameModel.getRoom("rueSombre").getDoor("Est").unlockDoor("MASTERKEY");
             Door trapdoor_ginger =  new TrapDoor("MASTERKEY",false,gameModel.getRoom("maisonGinger"));
             gameModel.getRoom("rueSombre").getDoorMap().remove("Est");
             gameModel.getRoom("maisonGinger").getDoorMap().remove("Ouest");
@@ -163,7 +154,7 @@ public class GameScenario
         }
         
         if(condition6 && !condition7 && !condition8){
-            signal = gameModel.getRoom("rueSombre").getDoor("Sud-Ouest").unlockDoor("MASTERKEY");
+            gameModel.getRoom("rueSombre").getDoor("Sud-Ouest").unlockDoor("MASTERKEY");
             gameModel.getRoom("rueSombre").getDoorMap().remove("Est");
             gameModel.getRoom("maisonGinger").getDoorMap().remove("Ouest");
             gameModel.getRoom("rueSombre").getDoorMap().put("Est",new CommonDoor("MASTERKEY",false));
@@ -187,7 +178,7 @@ public class GameScenario
                     gameModel.getRoom("maisonJack").getObjectRoom().addItem("collier",collier);
                     gameModel.getRoom("sallebain").getObjectRoom().addItem("cheveu2",cheveu2);
             }
-            signal = gameModel.getRoom("rueGare").getDoor("Sud").unlockDoor("MASTERKEY");
+            gameModel.getRoom("rueGare").getDoor("Sud").unlockDoor("MASTERKEY");
         }
         
         if(condition8){
@@ -221,7 +212,7 @@ public class GameScenario
                 return 1;
             } else {
                 if(objectives.containsKey(evenement)){
-                    boolean removed = objectives.remove(evenement);
+                    objectives.remove(evenement);
                     objectives.put(evenement,true);
                     return 1;
                 }

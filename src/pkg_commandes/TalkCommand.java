@@ -1,10 +1,8 @@
 package pkg_commandes;
 //Import de classes
 import pkg_game.*;
-import pkg_game.pkg_room.*;
 import pkg_mvc.GameControl;
 import pkg_mvc.GameView;
-import pkg_mvc.GameScenario;
 
 /**
  * Programme <b>Who is Jack ?</b><br>

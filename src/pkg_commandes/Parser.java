@@ -1,6 +1,4 @@
 package  pkg_commandes;
-//Import des classes
-import java.util.Scanner;
 import java.util.StringTokenizer;
 
 /**
@@ -57,7 +55,7 @@ public class Parser
      */
     public String showCommands()
     {
-        return commands.getCommandList();
+        return CommandWords.getCommandList();
     }//showCommands()
     
 }//Parser

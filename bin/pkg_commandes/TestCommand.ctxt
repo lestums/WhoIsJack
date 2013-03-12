@@ -1,5 +1,0 @@
-#BlueJ class context
-comment0.params=player\ gui
-comment0.target=java.lang.String\ execute(pkg_game.Player,\ pkg_mvc.GameView)
-comment0.text=\r\n\ \ Cette\ m\u00E9thode\ v\u00E9rifie\ que\ le\ joueur\ a\ bien\ tap\u00E9\ un\ second\ mot\ (repr\u00E9sentant\ un\ nom\ de\ fichier\ '.txt').\r\n\ \ On\ cr\u00E9e\ un\ objet\ Scanner\ qui\ prend\ le\ fichier\ de\ test\ en\ param\u00E8tre.\ \r\n\ \ Si\ le\ fichier\ existe,\ on\ r\u00E9cup\u00E8re\ chaque\ ligne\ de\ commande\ gr\u00E2ce\ \u00E0\ la\ m\u00E9thode\ nextLine()\ tant\ qu'une\ ligne\ suivante\ existe.\r\n\ \ Chaque\ commande\ \u00E9tant\ ex\u00E9cut\u00E9e\ par\ la\ m\u00E9thode\ play().\r\n\ \ @param\ player\ le\ joueur\r\n\ \ @param\ gui\ l'interface\ graphique\r\n\ \ @return\ un\ message\r\n
-numComments=1

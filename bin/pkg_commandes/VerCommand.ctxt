@@ -1,5 +1,0 @@
-#BlueJ class context
-comment0.params=player\ gui
-comment0.target=java.lang.String\ execute(pkg_game.Player,\ pkg_mvc.GameView)
-comment0.text=\r\n\ \ Cette\ m\u00E9thode\ v\u00E9rifie\ que\ le\ joueur\ a\ bien\ tap\u00E9\ 3\ mots\ sur\ la\ ligne\ de\ commande.\ Si\ c'est\ bien\ le\ cas,\r\n\ \ on\ v\u00E9rifie\ que\ la\ porte\ existe\ bien\ gr\u00E2ce\ au\ troisi\u00E8me\ mot.\ Enfin\ nous\ v\u00E9rifions\ l'\u00E9tat\ de\ la\ porte\ et\ \r\n\ \ nous\ retournons\ un\ message\ en\ fonction\ de\ son\ \u00E9tat.\r\n\ \ Sinon\ on\ retourne\ un\ message\ d'erreur.\r\n\ \ @param\ player\ le\ joueur\r\n\ \ @param\ gui\ l'interface\ graphique\r\n\ \ @return\ un\ message\r\n
-numComments=1

@@ -1,9 +1,7 @@
 package pkg_mvc;
 //Import de classe
 import java.util.Observable;
-import java.util.Observer;
 import pkg_commandes.*;
-import pkg_mvc.*;
 import pkg_game.*;
 import java.awt.Container;
 import javax.swing.JOptionPane;

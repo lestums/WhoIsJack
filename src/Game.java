@@ -12,6 +12,7 @@ import javax.swing.JApplet;
  * @author TRAN Anthony - RAVELONANOSY Lova - LE STUM Sébastien - PEYTOUREAU Julie
  * @version 2011.11.28 Version finale
  */
+@SuppressWarnings("serial")
 public class Game extends JApplet
 {
     /**

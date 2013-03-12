@@ -1,7 +1,5 @@
 package pkg_mvc;
 
-import java.awt.Graphics;
-import java.awt.Image;
 import java.awt.Insets;
 import java.awt.Dimension;
 import java.awt.Container;
@@ -12,20 +10,12 @@ import java.awt.event.WindowEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-import java.awt.event.MouseListener;
-import java.awt.event.MouseEvent;
-
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
 import java.net.URL;
 
-import java.io.File;
-import java.io.IOException;
-import javax.imageio.ImageIO;
-
 import javax.swing.JFrame;
-import javax.swing.JPanel;
 import javax.swing.JButton;
 import javax.swing.JList;
 import javax.swing.JLabel;
@@ -75,7 +65,6 @@ public class GameView implements ActionListener, Observer, ListSelectionListener
     private JButton use;
     private JButton quit;
     private JButton look;
-    private JPanel panneau;
     private JLabel image;
     private JLabel nomSalle = new JLabel();
     private JLabel nomListe1 = new JLabel();
@@ -506,9 +495,8 @@ public class GameView implements ActionListener, Observer, ListSelectionListener
      */
     public void display_message(final String titre, final String message, final int optionType)
     {
-        JOptionPane jop1 = new JOptionPane();
         if(!(message.equals("vide") || message.equals("")))
-        jop1.showMessageDialog(null,message,titre,optionType);
+        JOptionPane.showMessageDialog(null,message,titre,optionType);
     }
     
     /**

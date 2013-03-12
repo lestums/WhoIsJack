@@ -53,6 +53,9 @@ public class AllerCommand extends Command
                     gameModel.getChemin().push(currentRoom);
                     gameModel.gotoRoom(nextRoom);
                     break;
+                default:
+                	break;
+                	
             }//switch()
             return "vide";
         } //else

@@ -1,8 +1,4 @@
 package pkg_game;
-import pkg_mvc.GameControl;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Set; // Import de la classe Set
 
 
 /**
