@@ -1,0 +1,38 @@
+package pkg_commandes;
+import pkg_game.*;
+import pkg_mvc.*;
+import pkg_game.pkg_door.Door;
+
+/**
+ * Write a description of class DevCommand here.
+ * 
+ * @author (your name) 
+ * @version (a version number or a date)
+ */
+public class DevCommand extends Command
+{
+    public String execute(Player player,GameView gui){
+        String message = null;
+        GameModel gameModel=GameView.getGameModel();
+        if(!hasThirdWord()) 
+            message = "Déverouiller quoi ?";
+        else {
+            Door toOpen = gameModel.getCurrentRoom().getDoor(getThirdWord());
+            switch(toOpen.unlockDoor(getSecondWord())){
+                case UNLOCKED :
+                    message = "La porte est deverrouillée !";
+                    break;
+                case WRONG_ITEM :
+                    message = "C'est pas la bonne clé !";
+                    break;
+                case ALREADY_UNLOCKED :
+                    message = "La porte est dejà ouverte !";
+                    break;
+                default :
+                    message = "Cette porte n'existe pas !";
+                    break;
+            }
+        }
+        return message;
+    }
+}

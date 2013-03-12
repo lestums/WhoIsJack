@@ -1,0 +1,20 @@
+#BlueJ class context
+comment0.params=
+comment0.target=CharList()
+comment0.text=\r\n\ Construteur\ ItemList\ \:\ Cr\u00E9e\ une\ liste\ d'item\r\n
+comment1.params=pDescription\ pObjet
+comment1.target=void\ addChar(java.lang.String,\ NPCharacter)
+comment1.text=\r\n\ Ajoute\ un\ objet\ dans\ la\ salle\r\n\ @param\ pDescription\ Description\ de\ l'objet\r\n\ @param\ pObjet\ R\u00E9f\u00E9rence\ de\ l'item\r\n
+comment2.params=itemKey
+comment2.target=NPCharacter\ removeItem(java.lang.String)
+comment2.text=\r\n\ Supprime\ l'objet\ pris\ par\ le\ joueur\ dans\ la\ pi\u00E8ce\ courante\r\n\ @return\ l'objet\ Item\ pris\ par\ le\ joueur\ s'il\ se\ trouve\ dans\ la\ Hasmap\ objetsRoom\ sinon\ retourne\ null\r\n\ @param\ key(String)\ de\ l'objet\ \u00E0\ prendre\r\n
+comment3.params=
+comment3.target=java.util.HashMap\ getCharList()
+comment3.text=\r\n\ Accesseur\ de\ la\ classe\ itemList\ qui\ retourne\ la\ liste\ des\ objec\r\n
+comment4.params=item
+comment4.target=NPCharacter\ getChar(java.lang.String)
+comment4.text=\r\n\ Accesseur\ qui\ retourne\ le\ personnage\ 'item'\ dans\ la\ liste\r\n\ @param\ item\ Le\ nom\ du\ personnage\ recherch\u00E9\r\n
+comment5.params=
+comment5.target=java.lang.String\ getCharsString()
+comment5.text=\r\n\ R\u00E9cup\u00E8re\ tout\ les\ objets\ se\ trouvant\ dans\ la\ pi\u00E8ce\ courante\r\n\ @return\ Objets\ pr\u00E9sents\ dans\ la\ salle\ courante\r\n
+numComments=6

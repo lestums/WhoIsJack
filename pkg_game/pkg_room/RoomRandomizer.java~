@@ -1,0 +1,14 @@
+package pkg_game.pkg_room;
+import java.util.Random;
+import java.util.Set;
+import pkg_mvc.*;
+
+
+public class RoomRandomizer{
+    public static Room findRandomRoom(){
+        Random vR = new Random();
+        String[] roomNames = GameControl.getGameModel().getSetRoom().toArray(new String[0]);
+        int vI = vR.nextInt(roomNames.length);
+        return GameView.getGameModel().getRoom(roomNames[vI]);
+    }
+}//RoomRandomizer

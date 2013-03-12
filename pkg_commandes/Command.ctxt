@@ -1,0 +1,20 @@
+#BlueJ class context
+comment0.params=secondWord\ thirdWord
+comment0.target=void\ setSecondWord(java.lang.String,\ java.lang.String)
+comment0.text=\r\n\ M\u00E9thode\ qui\ modifie\ les\ deux\ attributs\ par\ des\ valeurs\ en\ param\u00E8tre\r\n\ @param\ secondWord\ et\ thirdWord\ les\ deux\ mots\ tap\u00E9s\ qui\ suivent\ une\ commande\r\n
+comment1.params=
+comment1.target=java.lang.String\ getSecondWord()
+comment1.text=\r\n\ @return\ Le\ second\ mot\ de\ la\ ligne\ pars\u00E9e.\ Retourne\ null\ si\ il\ n'y\ en\ a\ pas\r\n
+comment2.params=
+comment2.target=boolean\ hasSecondWord()
+comment2.text=\r\n\ @return\ true\ si\ la\ commande\ a\ un\ deuxieme\ mot\ de\ commande\r\n
+comment3.params=
+comment3.target=java.lang.String\ getThirdWord()
+comment3.text=\r\n\ @return\ Le\ second\ mot\ de\ la\ ligne\ pars\u00E9e.\ Retourne\ null\ si\ il\ n'y\ en\ a\ pas\r\n
+comment4.params=
+comment4.target=boolean\ hasThirdWord()
+comment4.text=\r\n\ @return\ true\ si\ la\ commande\ a\ un\ deuxieme\ mot\ de\ commande\r\n
+comment5.params=player\ gui
+comment5.target=java.lang.String\ execute(pkg_game.Player,\ pkg_mvc.GameView)
+comment5.text=\r\n\ M\u00E9thode\ abstraite\ qui\ permet\ d'ex\u00E9cuter\ la\ commande\ rentr\u00E9e\ par\ le\ joueur\r\n\ @param\ player\ le\ joueur\r\n\ @param\ gui\ l'interface\ graphique\r\n\ @return\ un\ message\ correspondant\ \u00E0\ la\ commande\r\n
+numComments=6

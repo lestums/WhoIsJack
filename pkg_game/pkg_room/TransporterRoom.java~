@@ -1,0 +1,45 @@
+package pkg_game.pkg_room;
+import pkg_mvc.*;
+
+public class TransporterRoom extends Room{
+
+    private boolean aAlea;
+    private String aRoom;
+    
+    public TransporterRoom(String description, String image, int pNbImage, boolean pTransport)
+    {
+        super(description, image, pNbImage, pTransport);  
+        aAlea = false;
+        aRoom = null;
+    }
+    
+    /**
+     * Retourne une pièce aléatoire, indépendante du paramètre de direction.
+     * @param direction Ignoré
+     * @return Une pièce aléatoire.
+     */
+    public Room getExit(String direction)
+    {
+        Room exit = super.getExit(direction);
+        
+        if(!(aAlea)){
+            if(exit != null)
+                return RoomRandomizer.findRandomRoom();
+                else
+                return null;
+        }
+        else {
+           return GameView.getGameModel().getRoom(aRoom);      
+        }
+    }//getExit()   
+    
+    /**
+     * Modificateur des attributs alea et aRoom
+     */
+    public void setAttribut(final boolean pAlea, final String pRoom)
+    {
+        aAlea = pAlea;
+        aRoom = pRoom;   
+    }//setAttribut()*
+    
+}// TransporterRoom

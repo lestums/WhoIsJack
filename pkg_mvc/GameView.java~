@@ -1,0 +1,503 @@
+package pkg_mvc;
+
+import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.Insets;
+import java.awt.Dimension;
+import java.awt.Container;
+
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+import java.awt.event.MouseListener;
+import java.awt.event.MouseEvent;
+
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+
+import java.net.URL;
+
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JButton;
+import javax.swing.JList;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JLabel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextField;
+import javax.swing.JTextArea;
+import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
+
+import java.util.Observable;
+import java.util.Observer;
+import javax.swing.DefaultListModel;
+
+
+/**
+ * Programme <b>Who is Jack ?</b><br>
+ * Class GameView - Une inteface graphique pour le jeu "Who is jack ?"<br><br>
+ * 
+ * Cette classe fait parti du jeu "Who is Jack ?"<br>
+ * 
+ * Elle correspond a la partie "Vue" du pattern MVC<br>
+ * Elle génère une interface graphique utilisable pour le jeu "Who is Jack ?"<br>
+ *  
+ * @author TRAN Anthony - RAVELONANOSY Lova - LE STUM Sébastien - PEYTOUREAU Julie
+ * @version 2010.10.30 Version 7.45.5
+ */
+
+public class GameView implements ActionListener, Observer, ListSelectionListener
+{
+    //Attributs
+    private GameModel gameModel;
+    private Container aCont;
+    private JFrame myFrame;
+    
+    private JButton n;
+    private JButton s;
+    private JButton e;
+    private JButton w;
+    private JButton nw;
+    private JButton ne;
+    private JButton se;
+    private JButton sw;
+    private JButton up;
+    private JButton dn;
+    private JButton take;
+    private JButton drop;
+    private JButton use;
+    private JButton quit;
+    private JPanel panneau;
+    private JLabel image;
+    
+    private JTextField entryField;
+    private JTextArea log;
+    
+    private JMenuBar barre_menu;
+    private JMenu menu_fichier;
+    private JMenu menu_aide;
+    private JMenuItem item1;
+    private JMenuItem item2;
+    private JMenuItem item3;
+    private JMenuItem item4;
+    private JMenuItem item5;
+    private JMenuItem item6;
+    
+    private JList liste1;
+    private JList liste2;
+    private JScrollPane liste1Scroll;
+    private JScrollPane liste2Scroll;
+
+    private DefaultListModel listObjectRoom;
+    private DefaultListModel listPlayer;
+    
+    private String selectL1;
+    private String selectL2;
+    
+     /**
+     * Construit une interface graphique en lien avec le gameModel du jeu
+     * 
+     * @param gameModel Le gameModel implémentant la logique du jeu
+     */
+    public GameView(GameModel gameModel,Container Cont)
+    {
+        this.gameModel = gameModel;
+        this.aCont = Cont;
+        createGUI();
+    }//GameView()
+    
+    /**
+     * Affiche des informations dans la zone de texte
+     */
+    public void print(String text)
+    {
+        log.append(text);
+        log.setCaretPosition(log.getDocument().getLength());
+    }//print()
+    
+    /**
+     * Affiche des informations dans la zone de texte, suivi d'un saut de ligne.
+     */
+    public void println(String text)
+    {
+        log.append(text + "\n");
+        log.setCaretPosition(log.getDocument().getLength());
+    }//println()
+    
+    /**
+     * Affiche une image dans l'interface graphique
+     */
+    public void showImage(String imageName)
+    {
+        ImageIcon icon;
+        URL imageURL = this.getClass().getClassLoader().getResource(imageName);
+        if(imageURL == null){
+            System.out.println("ATTENTION : Image introuvable !");
+            icon = new ImageIcon("img/blank.jpg");
+        } else {
+            icon = new ImageIcon(imageURL);
+        }//else
+        image.setIcon(icon);
+       // myFrame.pack();
+    }//showImage()
+    
+    /**
+     * Active ou désactive la possibilité de saisir
+     */
+    public void enable(boolean on)
+    {
+        entryField.setEditable(on);
+        if(!on)
+            entryField.getCaret().setBlinkRate(0);
+    }//enable()
+    
+    private void initLists(){
+        listObjectRoom = new DefaultListModel();
+        listPlayer = new DefaultListModel();
+        for(String element : gameModel.getCurrentRoom().getObjectRoom().getItemList().keySet()){
+            listObjectRoom.addElement(element);
+        }
+        
+        for(String element : gameModel.getPlayer().getObjectPlayer().getItemList().keySet()){
+            listPlayer.addElement(element);
+        }
+        
+        liste1 = new JList(listObjectRoom);
+        liste2 = new JList(listPlayer);
+        liste1Scroll = new JScrollPane(liste1);
+        liste1Scroll.setPreferredSize(new Dimension(80, 70));
+        liste2Scroll = new JScrollPane(liste2);
+        liste2Scroll.setPreferredSize(new Dimension(80, 70));
+    }
+    
+    private void update_lists(){
+        listObjectRoom.removeAllElements();
+        listPlayer.removeAllElements();
+        for(String element : gameModel.getCurrentRoom().getObjectRoom().getItemList().keySet()){
+            listObjectRoom.addElement(element);
+        }
+        
+        for(String element : gameModel.getPlayer().getObjectPlayer().getItemList().keySet()){
+            listPlayer.addElement(element);
+        }
+    
+    }
+
+    public void addComponentsToPane(Container pane) {  
+        
+        pane.setLayout(null);          
+        image = new JLabel();
+        n = new JButton("N");
+        s = new JButton("S");
+        e = new JButton("E");
+        w = new JButton("O");
+        ne = new JButton("N-E");
+        nw = new JButton("N-O");
+        se = new JButton("S-E");
+        sw = new JButton("S-O");
+        up = new JButton("Haut");
+        dn = new JButton("Bas");
+        take = new JButton("Prendre");
+        drop = new JButton("Deposer");
+        use = new JButton("Utiliser");
+        
+        entryField = new JTextField(34);
+        
+        log = new JTextArea();
+        log.setEditable(false);
+        JScrollPane listScroller = new JScrollPane(log);
+        listScroller.setPreferredSize(new Dimension(200, 200));
+        listScroller.setMinimumSize(new Dimension(100,100));
+               
+        pane.add(listScroller);         
+        pane.add(image);         
+        pane.add(entryField);
+        pane.add(n);
+        pane.add(s);
+        pane.add(e);
+        pane.add(w);
+        pane.add(ne);
+        pane.add(nw);
+        pane.add(se);
+        pane.add(sw);
+        pane.add(up);
+        pane.add(dn);
+        pane.add(liste1Scroll);
+        pane.add(liste2Scroll);
+        pane.add(take);
+        pane.add(drop);
+        pane.add(use);
+        
+        Insets insets = pane.getInsets();
+        image.setBounds(10+ insets.left, 10 + insets.top,400,300);   
+        listScroller.setBounds(420 + insets.left, 10 + insets.top, 510-insets.left, 260);
+        entryField.setBounds(420+ insets.left, 280 + insets.top, 510-insets.left,30); 
+        n.setBounds((1340-insets.left)/2-35,325+insets.top,60,20);
+        nw.setBounds((1190-insets.left)/2-35,325+insets.top,60,20);
+        ne.setBounds((1495-insets.left)/2-35,325+insets.top,60,20);
+        s.setBounds((1340-insets.left)/2-35,385+insets.top,60,20);
+        sw.setBounds((1190-insets.left)/2-35,385+insets.top,60,20);
+        se.setBounds((1495-insets.left)/2-35,385+insets.top,60,20);
+        w.setBounds((1190-insets.left)/2-35,355+insets.top,60,20);
+        e.setBounds((1495-insets.left)/2-35,355+insets.top, 60,20);
+        up.setBounds((1675-insets.left)/2-35,325+insets.top,60,20);
+        dn.setBounds((1675-insets.left)/2-35,385+insets.top,60,20);
+        liste1Scroll.setBounds(10 + insets.left,325+insets.top,190,80);
+        liste2Scroll.setBounds(220 + insets.left,325+insets.top,190,80);
+        
+        take.setBounds((980-insets.left)/2-35,325+insets.top,100,20);
+        drop.setBounds((980-insets.left)/2-35,385+insets.top,100,20);
+        use.setBounds((980-insets.left)/2-35,355+insets.top,100,20);
+    }   
+    
+    /**
+     * Etabli l'interface utilisateur
+     */
+    private void createGUI()
+    {
+        barre_menu = new JMenuBar();
+        menu_fichier = new JMenu("Fichier");
+        menu_aide = new JMenu("Aide");
+        item1 = new JMenuItem("Ouvrir");
+        item2 = new JMenuItem("Quitter");
+        item3 = new JMenuItem("Aide");
+        item4 = new JMenuItem("A Propos"); 
+        initLists();
+        
+        menu_fichier.add(item1);
+        menu_fichier.add(item2);
+        menu_aide.add(item3);
+        menu_aide.add(item4);
+        
+        barre_menu.add(menu_fichier);
+        barre_menu.add(menu_aide);
+        
+        if(aCont == null){
+            myFrame = new JFrame();
+            addComponentsToPane(myFrame.getContentPane()); 
+            myFrame.setJMenuBar(barre_menu);
+            myFrame.setSize(960,500);  
+            myFrame.addWindowListener(new myFrameCloser());
+            myFrame.setTitle("Who is Jack ?");
+            myFrame.setLocationRelativeTo(null);
+            myFrame.setVisible(true);
+        } else {
+            addComponentsToPane(aCont);
+        }
+        
+        n.addActionListener(new ActionListener() 
+                            {
+                                public void actionPerformed(ActionEvent e)
+                                {
+                                    GameControl.play("aller Nord"); 
+                                    update_lists();
+                                }
+                            });
+        s.addActionListener(new ActionListener() 
+                            {
+                                public void actionPerformed(ActionEvent e)
+                                {
+                                    GameControl.play("aller Sud");
+                                    update_lists();
+                                }
+                            });
+        e.addActionListener(new ActionListener() 
+                            {
+                                public void actionPerformed(ActionEvent e)
+                                {
+                                    GameControl.play("aller Est"); 
+                                    update_lists();
+                                }
+                            });
+        w.addActionListener(new ActionListener() 
+                            {
+                                public void actionPerformed(ActionEvent e)
+                                {
+                                  GameControl.play("aller Ouest");
+                                  update_lists();
+                                }
+                            });
+        ne.addActionListener(new ActionListener() 
+                            {
+                                public void actionPerformed(ActionEvent e)
+                                {
+                                   GameControl.play("aller Nord-Est"); 
+                                   update_lists();
+                                }
+                            });
+        nw.addActionListener(new ActionListener() 
+                            {
+                                public void actionPerformed(ActionEvent e)
+                                {
+                                   GameControl.play("aller Nord-Ouest"); 
+                                   update_lists();
+                                }
+                            });
+        se.addActionListener(new ActionListener() 
+                            {
+                                public void actionPerformed(ActionEvent e)
+                                {
+                                    GameControl.play("aller Sud-Est");
+                                    update_lists();
+                                }
+                            });
+        sw.addActionListener(new ActionListener() 
+                            {
+                                public void actionPerformed(ActionEvent e)
+                                {
+                                    GameControl.play("aller Sud-Ouest"); 
+                                    update_lists();
+                                }
+                            });
+        up.addActionListener(new ActionListener() 
+                            {
+                                public void actionPerformed(ActionEvent e)
+                                {
+                                    GameControl.play("aller en-haut"); 
+                                    update_lists();
+                                }
+                            });
+        dn.addActionListener(new ActionListener() 
+                            {
+                                public void actionPerformed(ActionEvent e)
+                                {
+                                    GameControl.play("aller en-bas"); 
+                                    update_lists();
+                                }
+                            });
+        use.addActionListener(new ActionListener() 
+                            {
+                                public void actionPerformed(ActionEvent e)
+                                {
+                                    GameControl.play("observer "+selectL2);
+                                    update_lists();
+                                }
+                            });
+        drop.addActionListener(new ActionListener() 
+                            {
+                                public void actionPerformed(ActionEvent e)
+                                {
+                                    GameControl.play("deposer "+selectL2);
+                                    update_lists();
+                                                                    }
+                            });
+        take.addActionListener(new ActionListener() 
+                            {
+                                public void actionPerformed(ActionEvent e)
+                                {
+                                    GameControl.play("prendre "+selectL1);
+                                    update_lists();
+                                }
+                            });
+        entryField.addActionListener(this);
+        item2.addActionListener(new menuListener());
+        liste1.addListSelectionListener(this);
+        liste2.addListSelectionListener(this);
+    }//createGUI()
+
+    /**
+     * ActionListener pour une action effectué sur un objet de l'interface
+     */
+    public void actionPerformed(ActionEvent e) 
+    {
+        processCommand();
+    } 
+        
+    public void valueChanged(ListSelectionEvent evt)
+    {
+       selectL1 = (String) liste1.getSelectedValue(); 
+       selectL2 = (String) liste2.getSelectedValue();
+    }
+    
+    /**
+     * Une commande a été saisie, récupere cette commande et la renvoie pour qu'elle soit interperer
+     */
+    private void processCommand()
+    {
+        String input = entryField.getText();
+        entryField.setText("");
+        GameControl.getGameScenario().checkScenario();
+        GameControl.play(input);
+    }//processCommand()
+    
+    /**
+     * Affiche le message de bienvenue
+     */
+    public void printWelcome()
+    {
+        display_message("Bienvenue !","\n" + gameModel.getWelcomeString() + "\n",JOptionPane.INFORMATION_MESSAGE);
+        printLocationInfo();
+    }//printWelcome()
+        
+    /**
+     * Affiche des informations sur la pièce courante
+     */
+    private void printLocationInfo()
+    {
+        println(gameModel.getLongDescription());
+    }//printLocationInfo()
+        
+    /**
+     * Affiche un message de remerciement
+     */
+    public void printGoodBye() 
+    {
+        display_message("Au revoir !",gameModel.getGoodByeString(),JOptionPane.INFORMATION_MESSAGE);
+    }//printGoodBye()
+   
+    /**
+     * Fonction de mise a jour de l'observateur lorsque qu'un signal notifyObserver() est reconnu
+     */
+    public void update(Observable o, Object arg)
+    {
+        printLocationInfo();
+        if(gameModel.getCurrentRoom().getImageName() != null){
+               showImage(gameModel.getCurrentRoom().getImageName());
+        }
+    }//update()
+        
+    public void killFrame()
+    {
+      printGoodBye();
+      if(aCont ==null){
+        myFrame.dispose();
+      }
+      else{
+        aCont.setVisible(false);  
+      }
+    }
+        
+    public void display_message(final String titre, final String message, final int optionType)
+    {
+        JOptionPane jop1 = new JOptionPane();
+		jop1.showMessageDialog(null,message,titre,optionType);
+    }
+    
+    class menuListener implements ActionListener 
+    {
+        @Override
+        public void actionPerformed(ActionEvent e)
+        {
+            killFrame();
+        }
+    }
+    
+    class myFrameCloser extends WindowAdapter
+    {
+        @Override      
+        public void windowClosing(WindowEvent e) 
+        {        
+            System.exit(0);
+        }
+    }
+}

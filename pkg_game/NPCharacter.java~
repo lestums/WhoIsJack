@@ -1,0 +1,42 @@
+package pkg_game;
+
+
+/**
+ * Write a description of class Character here.
+ * 
+ * @author (your name) 
+ * @version (a version number or a date)
+ */
+public class NPCharacter
+{
+    private String aSpeech;
+    private String aDescription;
+    private String aName;
+    private Event aSpeechEvent;
+    
+    public NPCharacter(final String pDescription, final String pName, final String pSpeech, final Event pSpeechEvent)
+    {
+        this.aDescription = pDescription;
+        this.aName = pName;
+        this.aSpeech = pSpeech;
+        this.aSpeechEvent = pSpeechEvent;
+    }
+    
+    public void setSpeech(final String pSpeech){
+        this.aSpeech = pSpeech;
+    }
+    
+    public void setSpeechEvent(final Event evenement){
+        this.aSpeechEvent = evenement;
+    }
+    
+    public String getName()
+    {
+        return this.aName;
+    }
+    
+    public String getSpeech()
+    {
+        return this.aSpeech;
+    }        
+}

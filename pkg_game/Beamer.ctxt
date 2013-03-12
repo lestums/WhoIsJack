@@ -1,0 +1,14 @@
+#BlueJ class context
+comment0.params=pPoids\ pDescription\ pName
+comment0.target=Beamer(int,\ java.lang.String,\ java.lang.String)
+comment0.text=\r\n\ Constructeur\ de\ \ Beamer\r\n
+comment1.params=currentRoom
+comment1.target=void\ setSauvRoom(pkg_room.Room)
+comment1.text=\r\n\ Modificateur\ sauvegardant\ la\ salle\ actuelle\ pour\ charger\ le\ beamer\r\n
+comment2.params=
+comment2.target=pkg_room.Room\ getSauvRoom()
+comment2.text=\r\n\ Permet\ de\ r\u00E9cuperer\ la\ salle\ charg\u00E9e\ par\ le\ beamer\r\n
+comment3.params=
+comment3.target=boolean\ useBeamer()
+comment3.text=\r\n\ Proc\u00E9dure\ permettant\ d'utiliser\ le\ beamer\r\n
+numComments=4

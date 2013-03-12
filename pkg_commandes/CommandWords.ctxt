@@ -1,0 +1,17 @@
+#BlueJ class context
+comment0.params=
+comment0.target=CommandWords()
+comment0.text=\r\n\ Constructeur\ \:\ Etabli\ la\ HashMap\ des\ commandes\ valides\ a\ partir\ des\ types\ \u00E9num\u00E9r\u00E9s\r\n
+comment1.params=commandWord
+comment1.target=Command\ getCommand(java.lang.String)
+comment1.text=\r\n\ Accesseur\ qui\ v\u00E9rifie\ si\ la\ commande\ existe\ dans\ la\ HashMap\r\n\ @param\ commandWord\ la\ commande\ \u00E0\ v\u00E9rifier\r\n\ @erturn\ la\ commande\ valid\u00E9e\r\n
+comment2.params=commandWord
+comment2.target=CommandWord\ getCommandWord(java.lang.String)
+comment2.text=\r\n\ Fonction\ qui\ retourne\ le\ mot\ de\ commande\ li\u00E9\ au\ mot\ fourni\ en\ parametre\r\n\ @param\ commandWord\ Chaine\ de\ caract\u00E8re\ de\ la\ commande\ voulue\r\n\ @return\ La\ variable\ ENUM\ correspondant\ au\ mot\r\n
+comment3.params=aString
+comment3.target=boolean\ isCommand(java.lang.String)
+comment3.text=\r\n\ Verifie\ si\ la\ chaine\ de\ caract\u00E8re\ est\ un\ parametre\ valide\r\n\ @param\ aString\ chaine\ de\ caractere\ a\ tester\r\n\ @return\ true\ si\ la\ commande\ existe\ sinon\ false\r\n
+comment4.params=
+comment4.target=java.lang.String\ getCommandList()
+comment4.text=\r\n\ @return\ Liste\ des\ commandes\ disponibles\ sous\ forme\ de\ String\r\n
+numComments=5

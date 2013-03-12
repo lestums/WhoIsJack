@@ -1,0 +1,17 @@
+#BlueJ class context
+comment0.params=
+comment0.target=GameScenario()
+comment0.text=\r\n\ Constructeur\ de\ GameScenario\ \:\ Initilise\ la\ HashMap\ des\ evenements\ sc\u00E9naris\u00E9\r\n\ \=>\ Utilisation\ d'un\ enum\ pour\ l'ensemble\ des\ evenements\ possibles\r\n
+comment1.params=
+comment1.target=void\ initGameScenario()
+comment1.text=\r\n\ Initialise\ le\ sc\u00E9nario\ \:\ Cr\u00E9e\ les\ personnages\ du\ sc\u00E9nario\ et\ les\ objets\ indispensables\ pour\ finir\ le\ jeu\r\n
+comment2.params=
+comment2.target=void\ checkScenario()
+comment2.text=\r\n\ Proc\u00E9dure\ qui\ v\u00E9rifie\ si\ chaque\ objectif\ est\ rempli\r\n
+comment3.params=
+comment3.target=int\ endOfGame()
+comment3.text=\r\n\ Fonction\ qui\ controle\ si\ le\ statut\ du\ jeu\ est\ PERDU\ ou\ GAGNE\r\n
+comment4.params=evenement
+comment4.target=int\ validGoal(pkg_game.Event)
+comment4.text=\r\n\ Fonction\ qui\ valide\ un\ objectif\ lorsqu'un\ evenement\ intervient\ \:\ Ramassage,\ depot,\ utilisation,\ dialogue\r\n
+numComments=5

@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.params=description\ image\ pNbImage\ pTransport
+comment0.target=TransporterRoom(java.lang.String,\ java.lang.String,\ int,\ boolean)
+comment0.text=\r\n\ Constructeur\ de\ la\ salle\ Transporteur\ room\r\n
+comment1.params=direction
+comment1.target=Room\ getExit(java.lang.String)
+comment1.text=\r\n\ Retourne\ une\ pi\u00E8ce\ al\u00E9atoire,\ ind\u00E9pendante\ du\ param\u00E8tre\ de\ direction.\r\n\ @param\ direction\ Ignor\u00E9\r\n\ @return\ Une\ pi\u00E8ce\ al\u00E9atoire.\r\n
+comment2.params=pAlea\ pRoom
+comment2.target=void\ setAttribut(boolean,\ java.lang.String)
+comment2.text=\r\n\ Modificateur\ des\ attributs\ alea\ et\ aRoom\r\n
+numComments=3
