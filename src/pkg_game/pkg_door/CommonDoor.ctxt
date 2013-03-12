@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.params=unlockItem\ state
+comment0.target=CommonDoor(java.lang.String,\ boolean)
+comment0.text=\r\n\ Constructeur\ de\ la\ classe\ CommonDoor\r\n
+comment1.params=nextRoom
+comment1.target=DoorSig\ useDoor(pkg_game.pkg_room.Room)
+comment1.text=\r\n\ Red\u00E9finition\ de\ la\ fonction\ abstraite\ d\u00E9finissant\ le\ comportement\ de\ la\ porte\r\n
+numComments=2

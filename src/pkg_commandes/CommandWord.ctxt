@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.params=commandString
+comment0.target=CommandWord(java.lang.String)
+comment0.text=\r\n\ Initialise\ avec\ le\ mot\ de\ commande\ associ\u00E9\r\n\ @param\ commandString\ la\ ligne\ de\ commande\r\n
+comment1.params=
+comment1.target=java.lang.String\ toString()
+comment1.text=\r\n\ @return\ commandString\ ,le\ mot\ de\ commande\ associ\u00E9\ au\ type\ \u00E9num\u00E9r\u00E9\r\n
+numComments=2

@@ -1,0 +1,20 @@
+package  pkg_commandes;
+import pkg_game.*;
+import pkg_mvc.*;
+
+public class ChargerCommand extends Command{
+
+    
+    public String execute(Player player,GameView gui)
+    {
+        
+        if(GameView.getGameModel().getPlayer().getObjectPlayer().getItemList().containsKey("beamer")){
+            Beamer vB= (Beamer)(GameView.getGameModel()).getPlayer().getObjectPlayer().getItem("beamer");
+            vB.setSauvRoom(GameView.getGameModel().getCurrentRoom());
+            return "Votre beamer est chargé";
+        } else
+            return "Vous ne portez pas le beamer !";
+        
+    }//execute()
+    
+}//ChargerCommand

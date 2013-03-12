@@ -1,0 +1,19 @@
+#BlueJ class context
+comment0.params=State\ unlockItem
+comment0.target=Door(boolean,\ java.lang.String)
+comment0.text=\r\n\ Constructeur\ de\ la\ classe\ Door\ \:\ Initialise\ la\ porte\ avec\ son\ etat\ de\ verrou\r\n\ et\ l'objet\ pouvant\ la\ deverrouiller\r\n
+comment1.params=
+comment1.target=boolean\ getState()
+comment1.text=\r\n\ Accesseur\ retournant\ l'etat\ du\ verrou\ de\ la\ porte\r\n
+comment2.params=
+comment2.target=java.lang.String\ getItemToUnlock()
+comment3.params=unlockingItem
+comment3.target=DoorSig\ unlockDoor(java.lang.String)
+comment3.text=\r\n\ Fonction\ qui\ permet\ la\ gestion\ du\ deverrouillage\ d'une\ porte\r\n\ @return\ Le\ signal\ renvoy\u00E9\ par\ la\ porte\r\n
+comment4.params=lockingItem
+comment4.target=DoorSig\ lockDoor(java.lang.String)
+comment4.text=\r\n\ Fonction\ qui\ permet\ la\ gestion\ du\ verrouillage\ d'une\ porte\r\n\ @return\ Le\ signal\ renvoy\u00E9\ par\ la\ porte\r\n
+comment5.params=nextRoom
+comment5.target=DoorSig\ useDoor(pkg_game.pkg_room.Room)
+comment5.text=\r\n\ M\u00E9thode\ abstraite\ de\ la\ classe\ Door\ qui\ defini\ qu'une\ porte\ peut\ \u00EAtre\ \r\n\ "utilis\u00E9e"\ (emprunt\u00E9e)\r\n
+numComments=6

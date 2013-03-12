@@ -1,0 +1,5 @@
+#BlueJ class context
+comment0.params=player\ gui
+comment0.target=java.lang.String\ execute(pkg_game.Player,\ pkg_mvc.GameView)
+comment0.text=\r\n\ \ Cette\ m\u00E9thode\ affiche\ le\ cr\u00E9dit\ du\ jeu.\r\n\ \ @param\ player\ le\ joueur\r\n\ \ @param\ gui\ l'interface\ graphique\r\n\ \ @return\ un\ message\r\n
+numComments=1

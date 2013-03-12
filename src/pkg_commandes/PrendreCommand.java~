@@ -1,0 +1,34 @@
+package pkg_commandes;
+import pkg_game.*;
+import pkg_mvc.*;
+/**
+ * Write a description of class PrendreCommand here.
+ * 
+ * @author (your name) 
+ * @version (a version number or a date)
+ */
+public class PrendreCommand extends Command
+{
+    public String execute(Player player,GameView gui)
+    {
+        if(!hasSecondWord()) {
+            return "\nVous n'avez pas saisi d'objet à prendre !\n";
+        }//if
+        else{
+            Item objetPris = GameControl.getGameModel().getCurrentRoom().getObjectRoom().removeItem(getSecondWord());
+            if(objetPris!=null){
+                String  message = "Vous avez pris l'objet" + objetPris.getName();
+                if(GameControl.getGameModel().getPlayer().getObjectPlayer().addItem(getSecondWord(),objetPris)){
+                    GameControl.getGameScenario().validGoal(objetPris.onGather());
+                } else {
+                    message += "\n Vous ne pouvez pas porter cet objet, pas assez de place !";
+                    GameControl.getGameModel().getCurrentRoom().getObjectRoom().addItem(getSecondWord(),objetPris);
+                }
+                return message;
+            }//if
+            else{
+                return "\nL'objet que vous avez saisi ne se trouve pas dans la pièce !\n";
+            }//else
+        }//else
+    }//prendre()
+}

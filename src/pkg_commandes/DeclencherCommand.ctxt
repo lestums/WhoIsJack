@@ -1,0 +1,5 @@
+#BlueJ class context
+comment0.params=player\ gui
+comment0.target=java.lang.String\ execute(pkg_game.Player,\ pkg_mvc.GameView)
+comment0.text=\r\n\ \ Cette\ m\u00E9thode\ permet\ de\ revenir\ \u00E0\ un\ point\ sauvegar\u00E9\ \:\ on\ v\u00E9rifie\ tout\ d'abord\ si\ le\ joueur\ d\u00E9tient\ le\ beamer,\r\n\ \ si\ c'est\ le\ cas\ on\ r\u00E9cup\u00E8re\ la\ pi\u00E8ce\ sauvegard\u00E9\ par\ l'accesseur\ getSauvRoom()\ puis\ on\ \ d\u00E9place\ le\ joueur\ gr\u00E2ce\ \r\n\ \ \u00E0\ la\ m\u00E9thode\ gotoRoom()\ vers\ la\ pi\u00E8ce\ r\u00E9cup\u00E9r\u00E9e\ et\ on\ r\u00E9initialise\ la\ pi\u00E8ce\ courante\ \u00E0\ null.\r\n\ \ Sinon\ on\ retourne\ un\ message\ d'erreur.\r\n\ \ @param\ player\ le\ joueur\r\n\ \ @param\ gui\ l'interface\ graphique\r\n\ \ @return\ un\ message\r\n
+numComments=1
