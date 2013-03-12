@@ -248,9 +248,9 @@ public class GameModel extends Observable
         //gotoRoomMovingChar();
         currentRoom = nextRoom;
         aPlayer.setCurrentPlayerRoom(nextRoom);
+        nbDeplacementRestant -= 1;
         setChanged();
         notifyObservers();
-        nbDeplacementRestant -= 1;
     }//gotoRoom()
     
     /**
